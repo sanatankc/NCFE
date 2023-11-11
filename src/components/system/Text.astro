@@ -13,7 +13,7 @@ const { type = 'base', class: className, style = {}, ...props } = Astro.props
 {type === 'h1' && (
   <h1
     class:list={[
-      "font-display text-5xl tracking-tight max-md:text-[2rem]", 
+      "font-display font-[700] text-5xl tracking-tight max-md:text-[2rem]", 
       className
     ]}
     style={style}
@@ -25,7 +25,7 @@ const { type = 'base', class: className, style = {}, ...props } = Astro.props
 {type === 'h2' && (
   <h2
     class:list={[
-      "font-display text-5xl tracking-tight max-md:text-[2rem]", 
+      "font-display font-[700] text-5xl tracking-tight max-md:text-[2rem]", 
       className
     ]}
     style={style}
@@ -38,7 +38,7 @@ const { type = 'base', class: className, style = {}, ...props } = Astro.props
 {type === 'h3' && (
   <h3
     class:list={[
-      "text-[2.5rem] tracking-tight font-display max-md:text-2xl", 
+      "text-[2.5rem] font-[700] tracking-tight font-display max-md:text-2xl", 
       className
     ]}
     style={style}
@@ -78,7 +78,7 @@ const { type = 'base', class: className, style = {}, ...props } = Astro.props
 {type === 'base' && (
   <div
     class:list={[
-      "text-xl max-md:text-base", 
+      "text-xl max-md:text-base font-[400]", 
       className
     ]}
     style={style}
@@ -132,7 +132,7 @@ const { type = 'base', class: className, style = {}, ...props } = Astro.props
 {type === 'subtitle' && (
     <div
       class:list={[
-        "text-xl max-md:text-base uppercase font-extrabold",
+        "text-xl max-md:text-base uppercase text-accent2 font-bold",
         className
       ]}
       style={{ 

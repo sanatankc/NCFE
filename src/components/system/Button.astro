@@ -1,6 +1,6 @@
 ---
 import FilledArrowCircle from '../icons/FilledArrowCircle.astro'
-const { title, secondary, icon, class: className, type="button" } = Astro.props;
+const { title, secondary, icon, class: className, type="button", bigButton } = Astro.props;
 const primary = !secondary;
 
 const Icon = icon ? icon : FilledArrowCircle;
@@ -13,28 +13,29 @@ const Icon = icon ? icon : FilledArrowCircle;
 ]}>
   <button 
     class:list={[
-      "flex flex-row items-center py-2 px-5 rounded-full border-[3px] button overflow-hidden relative",
-      primary ? "border-white/30" : "border-white" ,
+      "flex flex-row items-center py-2 px-5 bg-accent button overflow-hidden relative",
       primary ? "primary" : "secondary",
-    ]} 
-    style={{
-      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
-      background: primary ? "linear-gradient(263.64deg, #4B916A 6.11%, #028339 95.99%)" : 'white'
-    }}
+      bigButton && 'py-3 px-6'
+    ]}
     type={type}
     >
     <span class:list={[primary ? "text-white" : "text-green-400", "font-semibold", "text-lg max-md:text-base"]}>
       <slot/>
     </span>
-    <div class="w-5 h-5 ml-2 icon">
-      <slot name="icon">
-        <Icon color={primary ? "white" : "#3C674F"} />
-      </slot>
+    <div class="w-5 h-5 ml-2 icon rounded-full relative flex items-center justify-center">
+      <div class="w-3 h-3 bg-white absolute z-0">
+
+      </div>
+      <div class="relative z-10"> 
+        <slot name="icon">
+          <Icon color={primary ? "white" : "#3C674F"} />
+        </slot>
+      </div>
     </div>
     <div class="w-8 h-8 ml-2 loading-icon hidden">
       <svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
   viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
-    <path fill="#fff" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+    <path d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
       <animateTransform 
          attributeName="transform" 
          attributeType="XML" 

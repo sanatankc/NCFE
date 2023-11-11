@@ -1,7 +1,7 @@
 ---
 import Button from "./system/Button.astro";
 import Text from "./system/Text.astro";
-import logo from "../images/logo.svg";
+import logo from "../images/logo.webp";
 import { Image } from "astro:assets";
 
 import PhoneWhite from '../icons/PhoneWhite.svg'
@@ -101,15 +101,15 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
 
 
 <header
-  class="w-screen bg-black/80 py-1 px-14 max-md:px-5 box-border flex flex-row justify-between items-center backdrop-blur-md fixed z-[99]"
+  class="w-screen bg-white py-1 px-14 max-md:px-5 box-border flex flex-row justify-between items-center backdrop-blur-md fixed z-[99]"
 >
   {hideMenu ? (
     <div class="relative z-10 daisy daisy-fixed daisy-1">
-      <Image src={logo} alt="Glentree's Logo" />
+      <Image src={logo} alt="Glentree's Logo" width={80} />
     </div>
   ) : (
     <a href="/" class="relative z-10 daisy daisy-fixed daisy-1">
-      <Image src={logo} alt="Glentree's Logo" />
+      <Image src={logo} alt="Glentree's Logo" width={80} />
     </a>
   )}
   {!hideMenu && (
@@ -196,7 +196,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
         >
           <Image src={PhoneWhite} alt="Phone" class="w-full h-full object-cover" />
         </div>
-        <Text type="sm">+91 76763 10000</Text>
+        <Text type="sm" class="text-white">+91 76763 10000</Text>
       </div>
     )}
 

@@ -1,150 +1,413 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-import Hero from '../components/Hero.astro';
 import TopNavigationBar from '../components/TopNavigationBar.astro';
 
-import Updates from '../components/landingPage/Updates/index.astro'
-import LFL from '../components/landingPage/LFL.astro'
-import WhyGlentree from '../components/landingPage/whyGlentree.astro';
+import WhyGlentree from '../components/register/whyGlentree.astro';
 import Campus from '../components/register/campus.astro';
 
 import Testimonial from '../components/landingPage/Testimonial.astro';
-import BigAdmissionCTA from '../components/BigAdmissionCTA.astro';
-
+import Scholarship from '../components/register/scholarship.astro';
 import '../global.css'
 
 import '@fontsource/nunito-sans';
-import GlentreeFamily from '../components/landingPage/GlentreeFamily.astro';
 import Footer from '../components/landingPage/Footer.astro';
 import Text from '../components/system/Text.astro';
-import YoutubeEmbed from '../components/YoutubeEmbed.astro';
-import psjaAward from '../images/psjaAward.png'
-import meritAwards from '../images/meritAwards.png'
-import VittalFounderDesk from '../components/vittalFounderDesk.astro';
 import { Image } from 'astro:assets';
-import Constrain from '../components/system/Constrain.astro';
-import GlentreerCareer from '../components/GlentreerCareer.astro';
-import AdmissionMarquee from '../components/campus/admissionMarquee.astro';
+import AdmissionMarquee from '../components/campus/admissionMarquee.astro'
 
+import Constrain from '../components/system/Constrain.astro';
+import RegisterForm from '../components/register/registerForm.astro'
+import Slide from '../components/system/Slide.astro';
+import awards from "../images/awards.svg"
+import blobBG from '../images/blobBG.svg'
+
+import slide1 from "../img/slides/1.jpg";
+import slide2 from "../img/slides/2.jpg";
+import slide3 from "../img/slides/3.jpg";
+
+import slide1MB from "../img/slides/1.jpg";;
+import slide2MB from "../img/slides/2.jpg";;
+import slide3MB from "../img/slides/3.jpg";;
+
+
+
+import PhoneWhite from '../icons/PhoneWhite.svg'
+import Faqs from '../components/faqs.astro';
+import AcademicsBox from '../components/AcademicsBox.astro';
+
+
+
+import prePrimary from '../img/academics/prePrimary.jpg'
+import grade3to5 from '../img/academics/grade3to5.jpg'
+import grade6to8 from '../img/academics/grade6to8.jpg'
+import grade9to12 from '../img/academics/grade9to12.jpg'
+import AcademicCard from '../components/AcademicCard.astro';
+
+import underlineSVG from '../img/underline.svg'
+const faqs = [
+  {
+    question: 'How do I apply for admission to Glentree Academy?',
+    answer: ''
+  },
+  {
+    question: 'What are the admission requirements?',
+    answer: ''
+  },
+  {
+    question: 'Is there an application deadline for admissions?',
+    answer: ''
+  },
+  {
+    question: 'What are the tuition fees for the programs?',
+    answer: ''
+  },
+  {
+    question: 'How do I schedule a campus visit?',
+    answer: ''
+  },
+]
 
 ---
 
-<Layout title="Home | Best CBSE School in Bangalore | Glentree Academy School">
-  <main class="flex flex-col h-screen max-md:h-auto w-screen relative bg-white">
+<Layout title="Apply Now | Best CBSE School in Bangalore | Glentree Academy School">
+  <main class="flex flex-col min-h-[98svh] max-md:h-auto w-screen relative">
     <div 
-      class="flex-1 main-container max-md:h-auto h-screen w-screen"
+      class="flex-1 flex flex-col main-container max-md:h-auto min-h-[98svh] w-screen"
       id="scroll-area"
       style={{
         overflowY: 'overlay',
         overflowX: 'hidden',
       }}
     >
+
     
-    <div class='flex flex-col max-md:h-[100svh] h-[100vh]'>
-      <TopNavigationBar />
-      <Hero />
-      <AdmissionMarquee />
+      <div class='flex flex-col max-md:h-auto min-h-[100svh] relative'>
+        <TopNavigationBar hideMenu applyNowButtonId="register-page-apply-now" />
+        <div class="h-[88px] w-full bg-white"></div>
+
+        <!-- <div class="bg-yellow p-2 text-center text-black flex flex-row max-md:flex-col justify-center items-center group">
+          <Text type='regular' class="font-bold uppercase tracking-widest">Limited-period offer</Text>
+          <div class="px-2" />
+          <Text type='base' class="font-bold">Rs. 10,000 off on Admission Fees</Text>
+        </div> -->
+
+        <div class="w-full flex-1 h-full relative p-12 py-2 flex flex-row max-md:flex-col justify-between items-center max-md:p-8 max-md:px-4">
+          <div class="w-full h-full absolute top-0 left-0 max-md:hidden">
+            <Slide
+              slides={[
+                { image_desktop: slide1.src, image_mobile: slide1MB.src, position: 'center' },
+                { image_desktop: slide2.src, image_mobile: slide2MB.src, position: 'bottom' },
+                { image_desktop: slide3.src, image_mobile: slide2MB.src, position: 'center' }
+              ]}
+              id="resiter-page-hero"
+            />
+          </div>
+
+          <div class="w-full h-[110svh] absolute top-0 left-0 bg-red-100 hidden max-md:block">
+            <Slide
+              slides={[
+                { image_desktop: slide1MB.src, image_mobile: slide1MB.src, position: 'center' },
+                { image_desktop: slide2MB.src, image_mobile: slide2MB.src, position: 'center' },
+                { image_desktop: slide3MB.src, image_mobile: slide3MB.src, position: 'center' }
+              ]}
+              id="resiter-page-hero-mb"
+            />
+          </div>
+
+          <div 
+            class="
+              absolute w-full h-full top-0 left-0
+              bg-[linear-gradient(183deg,_rgba(0,_66,_29,_0.00)_31.29%,_#000_97.19%)]
+              max-md:bg-[linear-gradient(180deg,_rgba(0,_66,_29,_0.80)_-40.71%,_#000_50.19%)]
+              z-20
+            "
+            style={{
+              // background: 'linear-gradient(183deg, rgba(0, 66, 29, 0.00) 31.29%, #000 97.19%)',
+              // 'linear-gradient(321deg, rgba(0, 66, 29, 0.10) -2.71%, #000 101.19%)'
+            }}
+          />
+
+          <div class="max-md:p-2 max-md:block hidden"  />
+
+          <div class="h-full flex flex-row items-end relative z-20 self-end max-md:self-start">
+            <div class="flex flex-col items-center mb-10 max-md:mb-2">
+              <Text type="h3" class='text-white text-[1.6rem] tracking-wide flex flex-col items-center gap-2'>
+                <div class="flex flex-row gap-5"><div class="text-[56px] rotate-[-7deg] text-accent2 font-semibold font-display leading-[60px]">Inspire </div> <div class="text-accent text-[50px] italic font-display leading-[50px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>Excellence</div></div>
+                <div><span class="font-cursive text-[46px] leading-[50px] text-accent">and</span></div>
+                <div class="flex flex-row gap-5"><div class="text-[56px] text-accent2 font-semibold italic font-display leading-[60px]">Ignite </div> 
+                <div class="text-accent text-[50px] italic font-display leading-[50px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>
+                  success
+                  <div class="w-[170px] h-[16px] absolute bottom-[-10px]">
+                    <img src={underlineSVG.src} alt="Underline" />
+                  </div>
+                </div>
+              </div>
+              </Text>
+              <!-- <div class="flex flex-row text-white mt-4">
+                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-[#2F8251] rounded-tl-md rounded-bl-md">
+                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Experience</Text>
+                </div>
+                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-accent">
+                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Evolve</Text>
+                </div>
+                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-accent3 rounded-tr-md rounded-br-md">
+                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Excel</Text>
+                </div>
+              </div> -->
+              <!-- <div class="pt-[36px] max-md:pt-[24px]" id="register-form-container-mobile" /> -->
+              <!-- <div class="w-[382px] max-md:w-[85%]">
+                <Image src={awards} class="w-full" alt="Glentree Rank 1: " />
+              </div> -->
+            </div>
+          </div>
+          <div class="max-md:py-4" />
+          <RegisterForm />
+        </div>
+        <AdmissionMarquee class="max-md:!hidden" />
+        <!-- <div class="w-[50px] h-[50px] down-arrow-button transition-all duration-500 rounded-[50%] bg-accent border-accent/60 border-[4px] absolute top-[97vh] left-[50%] z-[9999] flex items-center justify-center max-md:hidden">
+          <div class="w-[18px] h-[9px] down-arrow-icon">
+            <Image src={DownArrow} alt="Down Arrow" class="w-full h-full object-cover" />
+          </div>
+        </div> -->
+      </div>
+
+    <div class='relative p-20 pb-10 max-md:p-5 text-black' style={{
+      background: 'linear-gradient(180deg, rgba(232, 225, 212, 0%), rgba(232, 225, 212, 44%))',
+    }}>
+      <!-- <div class="w-[263px] h-[279px] absolute right-0 top-0 z-20 max-md:hidden">
+        <Image src={blobBG} alt='Blob Background' class='w-full h-full object-cover' />
+      </div> -->
+      <Constrain>
+        <div class='relative z-10 flex flex-col items-center'>
+          <!-- <Text type='subtitle' style={{ letterSpacing: '0.1em', opacity: 0.8 }}>Locate Us</Text> -->
+          <Text type="subtitle" class='text-accent3'>Explore Our Legacy</Text>
+          <Text type='h2' class='mt-3 text-black'>An{' '}<span class='text-accent'>Overview</span></Text>
+          <Text type="base" class="mt-6">Discover the landscape of NCFE's offerings: A glimpse into our world of excellence and diversity</Text>
+          <div class="w-[870px] max-md:w-full max-md:h-[450px] h-[537px] flex flex-col mt-8">
+            <div class="flex flex-row flex-1 border-b border-dashed border-black/20">
+              <div class="flex-1 flex px-2 flex-col items-center justify-center border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent">3000+</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Students
+                </Text>
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent3 flex items-start">
+                  3
+                </Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Campuses
+                </Text>
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col">
+                <Text type="h2" class="max-md:text-[26px] text-accent">200+</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Teachers
+                </Text>
+              </div>
+            </div>
+            <div class="flex flex-row flex-1 border-b border-dashed border-black/20">
+              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent3">1:15</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Teacher-Student Ratio
+                </Text>
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent">18</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Years of Excellence
+                </Text>
+                
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col">
+                <Text type="h2" class="max-md:text-[26px] text-accent3 flex flex-row items-start">
+                  13
+                </Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Student Clubs
+                </Text>
+              </div>
+            </div>
+            <div class="flex flex-row flex-1">
+              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent">24</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Co-Scholastics
+                </Text>
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
+                <Text type="h2" class="max-md:text-[26px] text-accent3">K-12</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Grades
+                </Text>
+              </div>
+              <div class="flex-1 flex px-2 items-center justify-center flex-col">
+                <Text type="h2" class="max-md:text-[26px] text-accent">4000+</Text>
+                <Text type='base' class='mt-3 font-normal text-center'>
+                  Alumni
+                </Text>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Constrain>
     </div>
 
-    <div class="flex flex-row h-36 w-full mt-auto max-md:py-8 max-md:px-6 max-md:pb-1 items-center justify-around flex-wrap max-md:flex-col max-md:h-auto max-md:items-start relative z-20" style={{ background: '#030303' }}>
-      <div class="flex flex-row max-md:mb-5 daisy daisy-y-1 daisy-4">
-        <Image src={psjaAward} alt="PSJA Award" class="h-12 w-auto" />
-        <div class="ml-4">
-          <Text type='sm'>
-            Rank 1 in <span class="text-[#56cf8a] font-extrabold">Holistic Education</span>
-          </Text>
-          
-          <Text type='sm' class='text-gray-600 max-md:text-sm'>
-            India’s TOP PSJA 2022
-          </Text>
+
+
+
+   
+      
+
+    <div class='w-full p-14 pb-20 text-black bg-white flex flex-col items-center max-md:p-6'>
+      <div class="flex-1">
+        <Text type="subtitle" class='text-accent3 font-medium !text-base'>PRE-PRIMARY TO GRADE 2</Text>
+        <Text type='h2' class='mt-3 text-black'>Academic</Text>
+        <div class="flex flex-row items-center gap-3 mt-3">
+          <div class="bg-accent w-[160px] h-[2px]"></div>
+          <Text type='h2' class='text-accent text-[56px] font-medium italic'>Landscape</Text>
         </div>
+        <Text type="base" class="mt-14">
+          We have reimagined academics to promote active, hands-on, and personalized learning. Our approach goes beyond subjects, linking STEM with the humanities, language with the arts, and classroom lessons with real-world experience. Our curriculum is both innovative and challenging, advancing through four academic stages: <span class="text-accent font-medium">Fledging, Watering, Blossoming, and Basking.</span>
+        </Text>
       </div>
 
-      <div class="flex flex-row max-md:mb-5 daisy daisy-y-1 daisy-5">
-        <Image src={meritAwards} alt="PSJA Award" class="h-12 mr-[8px] w-auto" />
-        <div class="ml-4">
-          <Text type='sm'>
-            Best <span class="text-[#56cf8a] font-extrabold">Emerging</span> School
-          </Text>
-          
-          <Text type='sm' class='text-gray-600 max-md:text-sm'>
-            India’s School Merit Award
-          </Text>
+      <div class="flex flex-col gap-5 w-full mt-8">
+        <div class="h-[400px] flex flex-row w-full gap-3 text-white">
+          <AcademicCard
+            title="Foundational Stage (PP to Grade 2)"
+            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+          />
+          <AcademicCard
+            title="Foundational Stage (PP to Grade 2)"
+            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+          />
+        </div>
+        <div class="h-[400px] flex flex-row w-full gap-3 text-white">
+          <AcademicCard
+            title="Foundational Stage (PP to Grade 2)"
+            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+          />
+          <AcademicCard
+            title="Foundational Stage (PP to Grade 2)"
+            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+          />
         </div>
       </div>
-
-      <div class="flex flex-row max-md:mb-5 daisy daisy-y-1 daisy-6">
-        <Image src={psjaAward} alt="PSJA Award" class="h-12 w-auto" />
-        <div class="ml-4">
-          <Text type='sm'>
-            Rank 1 in <span class="text-[#56cf8a] font-extrabold">Integrated Learning</span>
-          </Text>
-          
-          <Text type='sm' class='text-gray-600 max-md:text-sm'>
-            India’s TOP PSJA 2022
-          </Text>
+      <!-- <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-16 max-w-[1196px]'>
+        <div class="flex flex-row w-full">
+          <div class="flex-1 justify-center items-center">
+            <Image src={prePrimary} alt="Pre Primary"  />
+          </div>
+          <div class="flex-1">
+            <Text type="subtitle" class='text-accent3 font-medium !text-base'>PRE-PRIMARY TO GRADE 2</Text>
+            <Text type='h3' class='mt-3 text-black'>Foundation Years</Text>
+            <div class="flex flex-row items-center gap-3">
+              <div class="bg-accent w-[80px] h-[2px]"></div>
+              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Fledging Stage</Text>
+            </div>
+            <Text type="base" class="mt-2">Our Early Years program nurtures every aspect of a child's growth. We guide them through activities that enhance their emotional (affective), intellectual (cognitive), and physical (psychomotor) development. Learning is fun and interactive with our play-based approach, and free play with friends in a supportive environment helps build social skills.</Text>
+          </div>
         </div>
       </div>
+      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
+        <div class="flex flex-row w-full">
+          <div class="flex-1">
+            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 3 TO GRADE 5</Text>
+            <Text type='h3' class='mt-3 text-black'>Preparatory Years</Text>
+            <div class="flex flex-row items-center gap-3">
+              <div class="bg-accent w-[80px] h-[2px]"></div>
+              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Watering Stage</Text>
+            </div>
+            <Text type="base" class="mt-2">The Preparatory Stage, designed for 8 to 11-year-olds, emphasises a hands-on approach to learning as outlined in the National Education Policy. Students explore and understand complex ideas through active experimentation, keen observation, and engaging with real-world scenarios. Integrating play with practical activities, this stage fosters a holistic understanding for young learners.</Text>
+          </div>
+          <div class="flex-1 flex justify-end items-end">
+            <Image src={grade3to5} alt="Pre Primary" class="w-[80%]" />
+          </div>
+        </div>
+      </div>
+      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
+        <div class="flex flex-row w-full">
+          <div class="flex-1 justify-center items-center">
+            <Image src={grade6to8} alt="Pre Primary" class="w-[80%]" />
+          </div>
+          <div class="flex-1">
+            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 6 TO GRADE 8</Text>
+            <Text type='h3' class='mt-3 text-black'>Middle Years</Text>
+            <div class="flex flex-row items-center gap-3">
+              <div class="bg-accent w-[80px] h-[2px]"></div>
+              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Blossoming Stage</Text>
+            </div>
+            <Text type="base" class="mt-2">The Middle Stage builds on earlier foundations by introducing students to more complex topics across diverse subjects. Emphasising skill integration and critical thinking, it encourages practical application of knowledge. This experiential, multidisciplinary approach ensures students gain essential life skills.</Text>
+          </div>
+        </div>
+      </div>
+      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
+        <div class="flex flex-row w-full">
+          <div class="flex-1">
+            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 9 TO GRADE 12</Text>
+            <Text type='h3' class='mt-3 text-black'>Secondary Years</Text>
+            <div class="flex flex-row items-center gap-3">
+              <div class="bg-accent w-[80px] h-[2px]"></div>
+              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Basking Stage</Text>
+            </div>
+            <Text type="base" class="mt-2">The Secondary Stage nurtures competencies with a learner-centric approach, ensuring active participation and experiential learning. Students enjoy flexibility in choosing subjects that align with their ambitions, fostering joy in learning and a multidisciplinary perspective. This stage strengthens understanding, values, and critical thinking, preparing students for life's various paths.</Text>
+          </div>
+          <div class="flex-1 flex justify-end items-center">
+            <Image src={grade9to12} alt="Pre Primary" class="w-[75%]" />
+          </div>
+        </div>
+      </div> -->
     </div>
-      
-      <!-- Carousell/Updatexss -->      
-      <!-- Our MOttto -->
-      <!-- <Updates /> -->
-      
-      <LFL />
-      <!-- Why Glentreee -->
-      <WhyGlentree />
+
+    <WhyGlentree />
 
 
-      <!-- Our Campauses -->
-      <Campus />
+    <!-- <LFL /> -->
+
+
+    <Campus />
 
       
 
 
-      <!-- Testimonials -->
 
-      <!-- <div class='w-5 h-32'></div> -->
-      <Testimonial />
-
-      <Text type="h2" class="text-black text-center bg-white p-6">Our Founder’s <span class="text-green-600">Note</span></Text>
-      <div class='bg-white px-20 max-md:px-4 w-full'>
-        <VittalFounderDesk />
-      </div>
-
-      <!-- Admission BIG CTA -->
-      <BigAdmissionCTA />
-
-      <!-- Glentree Family -->
-      <GlentreeFamily />
-
-      <div class="pb-6" />
-
-      <GlentreerCareer />
-      
-      <div class="pb-6" />
+    <!-- <Scholarship /> -->
+    <Testimonial />
 
 
-      <!-- Footer -->
+    <div class="w-full items-center flex flex-col bg-white">
+      <div class="p-4" />
+      <Text type={'subtitle'} class='text-black/60'>THINGS TO NOTE</Text>
+      <Text type={'h2'} class='mt-2 text-black'>FAQs</Text>
+      <div class="p-4" />
+      <Faqs />
+      <div class="p-3" />
+    </div>
+
+
+    
+
+    <!-- <BigAdmissionCTA /> -->
+
+    <!-- <GlentreeFamily /> -->
     <Footer />
+    </div>
 
-
-    <!-- width:60px;
-    height:60px;
-    bottom:40px;
-    right:40px; -->
-  <div class="float w-12 h-12 bottom-10 right-10 max-md:w-10 max-md:y-6 max-md:bottom-1 max-md:right-2 daisy daisy-y-1 daisy-9 daisy-fixed transition-opacity duration-500 opacity-0" id="whatsapp-btn">
-      <a href="https://api.whatsapp.com/send/?phone=917899738134&text=Hi&type=phone_number&app_absent=0" class="w-full h-full" target="_blank" aria-label="Enquire us at Whatsapp">
-        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" fill-rule="evenodd" clip-rule="evenodd"><path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"/><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"/><path fill="#fff" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"/><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"/><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"/></svg>
+    <button data-pixel-contact-target>
+      <a href="tel:7676310000">
+        <div class="fixed w-full h-14 bg-green-600 bottom-0 left-0 z-10 hidden max-md:flex items-center justify-center gap-4">
+          <div 
+            class="w-4 h-4"
+          >
+            <Image src={PhoneWhite} alt="Phone" class="w-full h-full object-cover" />
+          </div>
+          <Text type="sm">+91 76763 10000</Text>
+        </div>
       </a>
-      <div class="fixed bottom-11 right-24 bg-white px-3 py-1 rounded-2xl">
-        <Text type='xs' class='text-black'>Enquire us at Whatsapp</Text>
-      </div>
-    </div>
-      
+    </button>
 
-    </div>
   </main>
 </Layout>
 
@@ -168,26 +431,102 @@ import AdmissionMarquee from '../components/campus/admissionMarquee.astro';
     opacity: 1;
   }
 
-.my-float{
-	margin-top:16px;
-}
+  .my-float{
+    margin-top:16px;
+  }
 
-#arrow-button-about-us-career {
-  transition: 0.3s all ease-in-out;
-}
-#arrow-button-about-us-career.hovered {
-  transform: translatex(10px) translatey(-10px);
-}
-
+  .down-arrow-button {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+    overflow: hidden;
+  }
+  
+  .down-arrow-button:before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+        120deg,
+        rgba(255,255,255, 0) 30%,
+        rgba(255,255,255, .8),
+        rgba(255,255,255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+    animation: shineDownArrow 3s ease-out infinite;
+  }
+  
+  @keyframes shineDownArrow {
+    0% {left: -100px}
+    20% {left: 100%}
+    100% {left: 100%}
+  }
 </style>
 
 <script>
-  const joinCareerCta = document.getElementById('about-us-join-career-cta')
-  const arrowButton = document.getElementById('arrow-button-about-us-career')
-  joinCareerCta?.addEventListener('mouseenter', () => {
-    arrowButton.classList.add('hovered')
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '647409237216912');
+  fbq('track', 'PageView');
+</script>
+
+
+<script>
+  // @@ts-ignore
+
+  const academicBoxes = document.querySelectorAll('.academic-boxes')
+  document.querySelectorAll('.academic-boxes').forEach((academicBox) => {
+    academicBox.addEventListener('mouseenter', () => {
+      academicBox.classList.add('hovered')
+    })
+    academicBox.addEventListener('mouseleave', () => {
+      academicBox.classList.remove('hovered')
+    })
   })
-  joinCareerCta?.addEventListener('mouseleave', () => {
-    arrowButton.classList.remove('hovered')
+
+  const pixelContactTargets = document.querySelectorAll('[data-pixel-contact-target]')
+
+  pixelContactTargets.forEach((pixelContactTarget) => {
+    pixelContactTarget.addEventListener('click', () => {
+      fbq('track', 'Contact');
+    })
   })
+
+  // dev script temp
+  const applyNowButtons = document.querySelectorAll(`[data-apply-now-button="register-page-apply-now"]`)
+  console.log(applyNowButtons)
+  applyNowButtons.forEach((applyNowButton => {
+    applyNowButton?.addEventListener('click', () => {
+      if (window.innerWidth > 768) {
+        const registerFormContainer = document.getElementById('register-form-container-desktop')
+        registerFormContainer?.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        const registerFormContainer = document.getElementById('register-form-container-mobile')
+        registerFormContainer?.scrollIntoView({ behavior: 'smooth' })
+      }
+    })
+  }))
+
+  import collapsible, { openCollapsible } from '../components/admissions/collapsible'
+  collapsible('.collapsible', null)
+
+  const downArrowButton = document.querySelector('.down-arrow-button')
+  document.addEventListener('scroll', (e) => {
+    // after scrolling 100px, show the button
+    if (window.scrollY > window.innerHeight / 5) {
+      downArrowButton?.classList.add('opacity-0')
+    }
+  })
+  const mainContainer = document.querySelector('.main-container')
+  if (mainContainer) {
+  }
 </script>
