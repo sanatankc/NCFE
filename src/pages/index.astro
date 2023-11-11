@@ -37,10 +37,10 @@ import AcademicsBox from '../components/AcademicsBox.astro';
 
 
 
-import prePrimary from '../img/academics/prePrimary.jpg'
-import grade3to5 from '../img/academics/grade3to5.jpg'
-import grade6to8 from '../img/academics/grade6to8.jpg'
-import grade9to12 from '../img/academics/grade9to12.jpg'
+import prePrimary from '../img/academics/preview/prePrimary.webp'
+import grade3to5 from '../img/academics/preview/grade3to5.webp'
+import grade6to8 from '../img/academics/preview/grade6to8.webp'
+import grade9to12 from '../img/academics/preview/grade9to12.jpg'
 import AcademicCard from '../components/AcademicCard.astro';
 
 import underlineSVG from '../img/underline.svg'
@@ -103,7 +103,7 @@ const faqs = [
             />
           </div>
 
-          <div class="w-full h-[110svh] absolute top-0 left-0 bg-red-100 hidden max-md:block">
+          <div class="w-full absolute top-0 left-0 bg-red-100 hidden max-md:block">
             <Slide
               slides={[
                 { image_desktop: slide1MB.src, image_mobile: slide1MB.src, position: 'center' },
@@ -129,35 +129,20 @@ const faqs = [
 
           <div class="max-md:p-2 max-md:block hidden"  />
 
-          <div class="h-full flex flex-row items-end relative z-20 self-end max-md:self-start">
+          <div class="h-full flex flex-row items-end relative z-20 self-end max-md:self-start max-md:w-full justify-center">
             <div class="flex flex-col items-center mb-10 max-md:mb-2">
-              <Text type="h3" class='text-white text-[1.6rem] tracking-wide flex flex-col items-center gap-2'>
-                <div class="flex flex-row gap-5"><div class="text-[56px] rotate-[-7deg] text-accent2 font-semibold font-display leading-[60px]">Inspire </div> <div class="text-accent text-[50px] italic font-display leading-[50px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>Excellence</div></div>
-                <div><span class="font-cursive text-[46px] leading-[50px] text-accent">and</span></div>
-                <div class="flex flex-row gap-5"><div class="text-[56px] text-accent2 font-semibold italic font-display leading-[60px]">Ignite </div> 
-                <div class="text-accent text-[50px] italic font-display leading-[50px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>
+              <Text type="h3" class='text-white text-[1.6rem] tracking-wide flex flex-col items-center gap-0'>
+                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] rotate-[-7deg] max-md:rotate-[-5deg] relative  text-accent2 font-semibold font-display leading-[60px] max-md:leading-[36px]">Inspire </div> <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 1px 0px', }}>Excellence</div></div>
+                <div><span class="font-cursive text-[46px] max-md:text-[32px] leading-[50px] text-accent">and</span></div>
+                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] text-accent2 font-semibold italic font-display leading-[60px] max-md:leading-[36px]">Ignite </div> 
+                <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 1px 0px', }}>
                   success
-                  <div class="w-[170px] h-[16px] absolute bottom-[-10px]">
+                  <div class="w-[170px] max-md:w-[110px] h-[16px] absolute bottom-[-14px]">
                     <img src={underlineSVG.src} alt="Underline" />
                   </div>
                 </div>
               </div>
               </Text>
-              <!-- <div class="flex flex-row text-white mt-4">
-                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-[#2F8251] rounded-tl-md rounded-bl-md">
-                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Experience</Text>
-                </div>
-                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-accent">
-                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Evolve</Text>
-                </div>
-                <div class="w-[160px] max-md:w-[115px] py-2 flex justify-center bg-accent3 rounded-tr-md rounded-br-md">
-                  <Text type="h4" class="text-[21px] font-bold max-md:text-[16px] tracking-wide">Excel</Text>
-                </div>
-              </div> -->
-              <!-- <div class="pt-[36px] max-md:pt-[24px]" id="register-form-container-mobile" /> -->
-              <!-- <div class="w-[382px] max-md:w-[85%]">
-                <Image src={awards} class="w-full" alt="Glentree Rank 1: " />
-              </div> -->
             </div>
           </div>
           <div class="max-md:py-4" />
@@ -174,12 +159,8 @@ const faqs = [
     <div class='relative p-20 pb-10 max-md:p-5 text-black' style={{
       background: 'linear-gradient(180deg, rgba(232, 225, 212, 0%), rgba(232, 225, 212, 44%))',
     }}>
-      <!-- <div class="w-[263px] h-[279px] absolute right-0 top-0 z-20 max-md:hidden">
-        <Image src={blobBG} alt='Blob Background' class='w-full h-full object-cover' />
-      </div> -->
       <Constrain>
         <div class='relative z-10 flex flex-col items-center'>
-          <!-- <Text type='subtitle' style={{ letterSpacing: '0.1em', opacity: 0.8 }}>Locate Us</Text> -->
           <Text type="subtitle" class='text-accent3'>Explore Our Legacy</Text>
           <Text type='h2' class='mt-3 text-black'>An{' '}<span class='text-accent'>Overview</span></Text>
           <Text type="base" class="mt-6">Discover the landscape of NCFE's offerings: A glimpse into our world of excellence and diversity</Text>
@@ -262,36 +243,40 @@ const faqs = [
 
     <div class='w-full p-14 pb-20 text-black bg-white flex flex-col items-center max-md:p-6'>
       <div class="flex-1">
-        <Text type="subtitle" class='text-accent3 font-medium !text-base'>PRE-PRIMARY TO GRADE 2</Text>
+        <Text type="subtitle" class='text-accent3 font-medium !text-base'>OUR CURRICULUM</Text>
         <Text type='h2' class='mt-3 text-black'>Academic</Text>
         <div class="flex flex-row items-center gap-3 mt-3">
-          <div class="bg-accent w-[160px] h-[2px]"></div>
+          <div class="bg-accent w-[100px] h-[2px]"></div>
           <Text type='h2' class='text-accent text-[56px] font-medium italic'>Landscape</Text>
         </div>
-        <Text type="base" class="mt-14">
-          We have reimagined academics to promote active, hands-on, and personalized learning. Our approach goes beyond subjects, linking STEM with the humanities, language with the arts, and classroom lessons with real-world experience. Our curriculum is both innovative and challenging, advancing through four academic stages: <span class="text-accent font-medium">Fledging, Watering, Blossoming, and Basking.</span>
+        <Text type="base" class="mt-14 max-md:mt-6">
+          We have reimagined academics to promote active, hands-on, and personalized learning. Our approach goes beyond subjects, linking STEM with the humanities, language with the arts, and classroom lessons with real-world experience. Our curriculum is both innovative and challenging, advancing through four academic stages: <span class="text-accent font-medium">Fledgling, Watering, Blossoming, and Basking.</span>
         </Text>
       </div>
 
-      <div class="flex flex-col gap-5 w-full mt-8">
-        <div class="h-[400px] flex flex-row w-full gap-3 text-white">
+      <div class="flex flex-col gap-5 max-md:gap-3 w-full mt-8">
+        <div class="flex flex-row max-md:flex-col w-full gap-3 text-white">
           <AcademicCard
             title="Foundational Stage (PP to Grade 2)"
             description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+            image={prePrimary}
           />
           <AcademicCard
-            title="Foundational Stage (PP to Grade 2)"
-            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+            title="Preparatory Stage (Grade 3-5)"
+            description="At the Preparatory Stage (Watering), we cultivate inclusive learning, with a focus on fundamental skills and nurturing the ability to inquire about the world around them."
+            image={grade3to5}
           />
         </div>
-        <div class="h-[400px] flex flex-row w-full gap-3 text-white">
+        <div class="flex flex-row max-md:flex-col w-full gap-3 text-white">
           <AcademicCard
-            title="Foundational Stage (PP to Grade 2)"
-            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+            title="Middle Stage (Grade 6-8)"
+            description="At the Middle Stage (Blossoming), we facilitate transdisciplinary learning, guiding students to identify patterns around them, fostering a holistic educational experience."
+            image={grade6to8}
           />
           <AcademicCard
-            title="Foundational Stage (PP to Grade 2)"
-            description="At the Foundational Stage (Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
+            title="Secondary Stage (Grade 9-12)"
+            description="At the Secondary stage (Basking), our emphasis is on cultivating in-depth concept understanding, ensuring academic excellence and future success."
+            image={grade9to12}
           />
         </div>
       </div>
@@ -379,8 +364,10 @@ const faqs = [
 
     <div class="w-full items-center flex flex-col bg-white">
       <div class="p-4" />
-      <Text type={'subtitle'} class='text-black/60'>THINGS TO NOTE</Text>
-      <Text type={'h2'} class='mt-2 text-black'>FAQs</Text>
+
+      <Text type="subtitle" class='text-accent3'>THINGS TO NOTE</Text>
+      <Text type='h2' class='mt-3 text-accent'>FAQs</Text>
+
       <div class="p-4" />
       <Faqs />
       <div class="p-3" />
@@ -395,18 +382,6 @@ const faqs = [
     <Footer />
     </div>
 
-    <button data-pixel-contact-target>
-      <a href="tel:7676310000">
-        <div class="fixed w-full h-14 bg-green-600 bottom-0 left-0 z-10 hidden max-md:flex items-center justify-center gap-4">
-          <div 
-            class="w-4 h-4"
-          >
-            <Image src={PhoneWhite} alt="Phone" class="w-full h-full object-cover" />
-          </div>
-          <Text type="sm">+91 76763 10000</Text>
-        </div>
-      </a>
-    </button>
 
   </main>
 </Layout>

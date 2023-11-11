@@ -24,7 +24,7 @@ const gallery = props.gallery
         </svg>
       </div>
       <div class="text-center">
-        <Text type="h4" class="text-white max-md:text-[18px]" data-caption-id={slideId} data-slides-captions={[gallery.map(slide => slide.caption)]}>{gallery[0].caption}</Text>
+        <Text type="h4" class="text-white max-md:text-[18px] font-bold" data-caption-id={slideId} data-slides-captions={[gallery.map(slide => slide.caption)]}>{gallery[0].caption}</Text>
         <div class="p-1" />
         <Text type="base" class="text-[#F6D58D] max-md:hidden" data-description-id={slideId} data-slides-description={gallery.map(slide => slide.description).join('___')}>{gallery[0].description}</Text>
       </div>

@@ -12,6 +12,7 @@ import mandur from '../../img/campus/mandur.jpg'
 import CampusCard from './campusCard.astro';
 import Constrain from '../system/Constrain.astro';
 import { Image } from 'astro:assets';
+import config from '../../config'
 ---
 <div class='bg-white relative p-20 py-20 max-md:p-5'>
   <!-- <Image src={campusSectionPatternBG} class='w-screen absolute top-0 left-0 -z-1' role="presentation" alt="decoration" /> -->
@@ -22,11 +23,11 @@ import { Image } from 'astro:assets';
 
       <div class='grid grid-cols-3 gap-8 max-md:gap-4 max-md:grid-rows-2 max-md:grid-cols-1 justify-between mt-8'>
         <!-- <a href='https://glentreeacademy.com/glentree-whitefield/'> -->
-          <CampusCard link='/glentree-whitefield/' image={cvr} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indirangar' desc="Centrally located in the IT corridor of Bangalore." />
+          <CampusCard  link={config.baseURL + 'cvr-overview'} image={cvr} name='CV Raman' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Discover a world of learning on our 7.5-acre campus dedicated for 18 years to fostering young minds." />
+          <CampusCard link={config.baseURL + 'indiranagar-overview'} image={indiranagar} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indiranagar' desc="Established in 2017, our JBN Campus equip your child not just for life’s challenges but also for leadership." />
         <!-- </a> -->
         <!-- <a href='/glentree-sarajapura/'> -->
-          <CampusCard  link="/glentree-sarjapur/" image={indiranagar} name='CV Raman' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="A sprawling green campus located within the heart of the city." />
-          <CampusCard upcomingRibbon link="/glentree-bannerghatta" image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
+          <CampusCard upcomingRibbon link={config.baseURL + ' mandur-overview'} image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
         <!-- </a> -->
       </div>
     </Constrain>

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 const { images = [], class: className, cardHoverStyle, target, id } = Astro.props
 
 let deckHoverClass = ''
@@ -19,22 +20,23 @@ if (cardHoverStyle) {
     w-[357px] h-[333px] max-md:w-[320px] max-md:h-[280px] relative group hover:cursor-pointer deck-card
     [&.active>div:first-child]:rotate-[-4deg]
     [&.active>div:last-child]:rotate-[4.651deg] 
-    [&.active>div]:border-[#0A5E2F]`,
+    [&.active>div]:border-[#EB5133]`,
     deckActiveClass
   ]} data-deck-id={id}>
     <div 
       class:list={[`bg-white border rounded-md w-full h-full absolute top-0 left-0 p-2
         rotate-[-2.785deg]  transition-transform max-md:rotate-[-2.785deg]
-        group-hover:rotate-[-4deg] group-hover:border-[#0A5E2F]
+        group-hover:rotate-[-4deg] group-hover:border-[#EB5133]
       `, deckHoverClass]}
       style={{
         boxShadow: '0px 0px 18.19317px 0px rgba(0, 0, 0, 0.30)'
       }}
     >
-      <img
+      <Image
         src={images[0].src}
         alt={images[0].alt}
-        class="w-full h-full rounded-md object-cover"
+        class="w-full h-full rounded-md object-cover object-top"
+        width={500}
       />
     </div>
     <div 
@@ -48,10 +50,11 @@ if (cardHoverStyle) {
         boxShadow: '0px 0px 14.19317px 0px rgba(0, 0, 0, 0.10)'
       }}
     >
-      <img
+      <Image
         src={images[1].src}
         alt={images[1].alt}
-        class="w-full h-full rounded-md object-cover"
+        class="w-full h-full rounded-md object-cover object-top"
+        width={500}
       />
     </div>
   </div>

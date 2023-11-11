@@ -2,14 +2,31 @@
 import QuoteIcon from '../../icons/quoteIcon.png'
 
 import heroTestimonial from '../../images/heroTestimonial.png'
-import testimonial1 from '../../images/testimonial1.webp'
-import testimonial2 from '../../images/testimonial2.webp'
+import testimonial1 from '../../img/testimonial1.png'
+import testimonial2 from '../../img/testimonial2.png'
 import Button from '../system/Button.astro';
 import Constrain from '../system/Constrain.astro';
 import Text from '../system/Text.astro';
 import { Image } from 'astro:assets';
 
+import TestimonicalCard from './TestimonialCard.astro';
+
 import YoutubeEmbed from '../YoutubeEmbed.astro'
+
+const testimonials = [
+    {
+      image: testimonial1,
+      quote: "As a parent, I've seen NCFE become my children's second home, a cornerstone of their journey. Dedicated teachers and management played a vital role in their success. NCFE nurtured their talents and potential.",
+      author: '- Shruti, Parent',
+    },
+    {
+      image: testimonial2,
+      quote: "NCFE has played a significant role in the best part of my life. I'm immensely thankful for the support from my teachers and friends, making my journey truly meaningful.",
+      author: '- Asmi Patnaik',
+
+    },
+  ]
+
 ---
 <div class='bg-white p-14 pt-24 max-md:pt-2 px-20 max-md:px-4 max-md:p-10 max-md:pb-0'>
   <Constrain class="relative flex flex-col items-center max-md:items-center max-md:text-center">
@@ -60,40 +77,19 @@ import YoutubeEmbed from '../YoutubeEmbed.astro'
       </div>
     </div> -->
 
-    <div class="w-full gap-7 flex flex-row max-md:flex-col mt-6">
-      <div class="border border-gray-300 flex flex-row max-md:flex-col rounded-lg overflow-hidden"> 
-        <div class='min-w-[232px] max-md:min-h-[280px] max-md:bg-[10%_10%] bg-cover bg-center' style={{
-          backgroundImage: `url(${testimonial1.src})`,
-          backgroundSize: 'cover',
-          
-        }}>
-        </div>
-        <div class=" p-6">
-          <Text type={'base'} class='text-black'>
-            As a parent, I've seen NCFE become my children's second home, a cornerstone of their journey. Dedicated teachers and management played a vital role in their success. NCFE nurtured their talents and potential.
-          </Text>
-
-          <Text type={'base'} class='text-black font-semibold mt-7 max-md:mt-4'>Shruti</Text>
-          <Text type={'base'} class='text-green-600 font-semibold mt-3'>Parent of XXX</Text>
-  
-        </div>
-      </div>
-      <div class="border   border-gray-300 flex flex-row max-md:flex-col rounded-lg overflow-hidden"> 
-        <div class='min-w-[232px] max-md:min-h-[280px] max-md:bg-[10%_10%] bg-cover bg-center' style={{
-          backgroundImage: `url(${testimonial2.src})`,
-          backgroundSize: 'cover'
-        }}>
-        </div>
-        <div class=" p-6">
-          <Text type={'base'} class='text-black'>
-            NCFE has played a significant role in the best part of my life. I'm immensely thankful for the support from my teachers and friends, making my journey truly meaningful.
-          </Text>
-
-          <Text type={'base'} class='text-black font-semibold mt-7 max-md:mt-4'>Asmi Patnaik</Text>
-          <Text type={'base'} class='text-green-600 font-semibold mt-3'>XXX</Text>
-  
-        </div>
-      </div>
+    <div class="flex flex-row gap-7 max-sm:flex-col max-sm:gap-0 mt-16">
+      {testimonials.map(item => {
+        return (
+          <TestimonicalCard 
+              quote={item.quote}
+              author={item?.author}
+              image={item.image}
+              ctaText={item.ctaText}
+              ctaLink={item.ctaLink}
+              className="bg-transparent  rounded-bl-[50px]"
+          />
+        )
+      })}
     </div>
 
     <!-- <iframe width="330" height="186" src="https://www.youtube.com/embed/" title="Glentree Student Testimonial | Glentree Academy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->

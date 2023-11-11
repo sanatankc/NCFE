@@ -12,8 +12,10 @@ const {
   closeLink
 } = Astro.props
 
+console.log('gallery --> ', gallery)
+
 const images = gallery.map(slide => (
-  {src: slide.src.src, alt: slide.caption}
+  {src: slide.src, alt: slide.caption}
 )).slice(...deckImages).reverse()
 
 const deckCardId = 'deck-' + id

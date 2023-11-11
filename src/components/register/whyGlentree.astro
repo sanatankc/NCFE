@@ -2,16 +2,19 @@
 import clubsThumb from '../../images/clubsThumb.png'
 import coscholasticsThumb from '../../images/coscholasticsThumb.png'
 import FilledArrowCircle from '../icons/FilledArrowCircle.astro';
-import Constrain from '../system/Constrain.astro';
 import overviewRegisterPageBG from '../../images/overviewRegisterPageBG.png'
+import bulletStarGreen from '../../images/bulletStarGreen.svg'
+
+import Constrain from '../system/Constrain.astro';
 import Text from '../system/Text.astro';
 import { Image } from 'astro:assets';
-import DeckCard from '../DeckCard.astro';
+import DeckCard from '../DeckCardWithGalleryCaption.astro';
 import earthLab from '../../images/earthLab.png'
 import taekwondo from '../../images/coscholastics/Taekwondo.jpg'
 import bulletStar from '../../images/bulletStar.svg'
-import bulletStarGreen from '../../images/bulletStarGreen.svg'
 import Gallery from '../Gallery.astro';
+
+import underlineSVG from '../../img/underline.svg'
 
 import gallery1 from '../../images/register/gallery/1.png'
 import gallery2 from '../../images/register/gallery/2.png'
@@ -21,7 +24,100 @@ import gallery5 from '../../images/register/gallery/5.png'
 import gallery6 from '../../images/register/gallery/6.png'
 import gallery7 from '../../images/register/gallery/7.jpg'
 
-import underlineSVG from '../../img/underline.svg'
+import pottery from '../../img/activities/pottery.jpg'
+import publicSpeaking from '../../img/activities/publicSpeaking.jpg'
+import sports from '../../img/activities/sports.jpg'
+import creativeWriting from '../../img/activities/creativeWriting.jpeg'
+import music from '../../img/activities/music.jpeg'
+import yoga from '../../img/activities/yoga.jpg'
+import robotics from '../../img/activities/robotics.jpg'
+import environment from '../../img/activities/environment.jpeg'
+import calligraphy from '../../img/activities/calligraphy.webp'
+import art from '../../img/activities/art.jpg'
+import coding from '../../img/activities/codingClub.webp'
+import homeScience from '../../img/activities/homeScience.webp'
+import karateClub from '../../img/activities/karateClub.webp'
+import scoutNGuides from '../../img/activities/scoutNGuides.webp'
+import stemClub from '../../img/activities/stemClub.webp'
+
+
+const deckCardWithDescription = [
+    {
+        "src": karateClub,
+        "caption": "Karate Club",
+        "description": "Master the art of Karate, improving physical fitness, focus, and self-discipline while learning self-defense techniques."
+    },
+    {
+        "src": art,
+        "caption": "Arts & Crafts",
+        "description": "Express creativity and fine-tune motor skills with diverse materials in our Arts & Crafts Club, where imagination meets reality."
+    },
+    // {
+    //     "src": coding,
+    //     "caption": "Coding Club",
+    //     "description": "Step into the future with our Coding Club, where students learn to create software, apps, and games, developing critical tech skills."
+    // },
+    {
+        "src": sports,
+        "caption": "Sports Activities",
+        "description": "Champion teamwork and sportsmanship through Football, Basketball, Cricket, Swimming, Baadminton, Volleyball, Throwball, Table Tennis, Chess, and Carrom nurturing athletic talents and a healthy lifestyle."
+    },
+    {
+        "src": yoga,
+        "caption": "Yoga & Gymnastics",
+        "description": "Enhance flexibility, balance, and concentration with our Yoga & Gymnastics programs, promoting physical and mental well-being."
+    },
+    {
+        "src": pottery,
+        "caption": "Pottery Club",
+        "description": "Shape creativity and relax the mind with our Pottery classes, learning the art of molding clay into beautiful forms."
+    },
+    {
+        "src": robotics,
+        "caption": "Robotics Club",
+        "description": "Build and program robots in our Robotics Club, blending science and technology for innovative problem-solving skills."
+    },
+    // {
+    //     "src": calligraphy,
+    //     "caption": "Calligraphy Club",
+    //     "description": "Discover the elegance of penmanship in our Calligraphy Club, enhancing artistic expression through beautiful handwriting."
+    // },
+    // {
+    //     "src": creativeWriting,
+    //     "caption": "Creative Writing",
+    //     "description": "Unleash imagination with our Creative Writing group, crafting stories, poems, and narratives while honing language skills."
+    // },
+    {
+        "src": environment,
+        "caption": "Environment Club",
+        "description": "Join the crusade to protect our planet with the Environment Club, engaging in sustainability projects and green practices."
+    },
+    {
+        "src": homeScience,
+        "caption": "Home Science",
+        "description": "Learn the essentials of home management and nutrition in our Home Science Club, empowering practical life skills."
+    },
+    {
+        "src": music,
+        "caption": "Music Club",
+        "description": "Harmonize, compose, and perform in our Music Club, where melodies foster joy and teamwork."
+    },
+    {
+        "src": publicSpeaking,
+        "caption": "Public Speaking",
+        "description": "Gain confidence and eloquence with our Public Speaking program, developing articulate and persuasive communication skills."
+    },
+    {
+        "src": scoutNGuides,
+        "caption": "Scouts & Guides",
+        "description": "Adventure awaits in our Scouts & Guides, instilling survival skills, camaraderie, and a spirit of community service."
+    },
+    // {
+    //     "src": stemClub,
+    //     "caption": "STEM Club",
+    //     "description": "Delve into Science, Technology, Engineering, and Math with our STEM Club, where innovative minds solve complex challenges."
+    // }
+]
 
 ---
 <div class="py-14 max-md:py-8 relative text-center flex flex-col items-center bg-white" style={{
@@ -33,7 +129,7 @@ import underlineSVG from '../../img/underline.svg'
     Excellence{' '}
     <span class="text-accent relative">
       Delivered
-      <div class="w-[180px] h-[16px] absolute bottom-[-12px] left-[20px]">
+      <div class="w-[180px] max-md:w-[120px] h-[16px] absolute bottom-[-12px] max-md:bottom-[-16px] left-[20px]">
         <img src={underlineSVG.src} alt="Underline" />
       </div>
     </span>
@@ -44,117 +140,41 @@ import underlineSVG from '../../img/underline.svg'
   <p class="p-3" />
   <Constrain class="flex flex-col w-full items-center gap-8">  
 
-    <div class="flex flex-row gap-12 w-full justify-between mt-12 text-black max-w-[1070px] max-md:w-full max-md:flex-col max-md:items-center  max-md:hidden">
+    <div class="flex flex-row gap-12 w-full justify-between mt-12 text-black max-w-[1070px] max-md:w-full max-md:flex-col max-md:items-center">
       <div class="flex flex-col items-start text-left gap-6 max-md:order-2 max-md:px-8">
         <Text type="h3" class="text-accent">Co-Scholastics</Text>
-        <Text type="base" class="font-semibold">Explore a vibrant array of co-curricular activities for personalized development.</Text>
+        <Text type="base" class="font-regular">Explore a vibrant array of co-curricular activities for personalized development.</Text>
         <div class="flex flex-row items-center">
           <div class="w-[16px] h-[18px]">
             <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
           </div>
-          <Text type="regular" class="font-bold ml-[10px]">Computer Science & Coding</Text>
+          <Text type="regular" class="font-medium ml-[10px]">Robotics & Coding</Text>
         </div> 
         <div class="flex flex-row items-center">
           <div class="w-[16px] h-[18px]">
             <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
           </div>
-          <Text type="regular" class="font-bold ml-[10px]">Yoga</Text>
+          <Text type="regular" class="font-medium ml-[10px]">Karate</Text>
         </div>
         <div class="flex flex-row items-center">
           <div class="w-[16px] h-[18px]">
             <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
           </div>
-          <Text type="regular" class="font-bold ml-[10px]">Taekwondo</Text>
+          <Text type="regular" class="font-medium ml-[10px]">Yoga</Text>
         </div>
         <div class="cursor-pointer" data-modal-target="gallery-coscholastics" data-target-deck="deck-card-coscholastics">
           <Text type="regular" class='underline uppercase text-accent tracking-wide font-bold'>VIEW all ACtIVITIES</Text>
         </div>
       </div>
+
       <DeckCard
-        images={[
-          earthLab,
-          taekwondo,
-        ]}
-        class="mt-6 max-md:order-1"
-        id="deck-card-coscholastics"
-        target="gallery-coscholastics"
-      />
-    </div>
-    <div class="max-md:flex flex-row gap-12 w-full justify-center mt-6 text-black max-w-[1070px] max-md:w-full max-md:flex-col max-md:items-center hidden">
-      <div class="flex flex-col items-start text-left gap-6 max-md:order-2 max-md:px-8">
-        <Text type="h3" class="text-accent max-md:text-[22px]">Glentree Clubs & Co-Scholastics</Text>
-        <Text type="base" class="font-semibold">Discover dynamic student clubs and co-curricular activities for personalized development.</Text>
-        <div class="flex flex-row items-center">
-          <div class="w-[16px] h-[18px]">
-            <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
-          </div>
-          <Text type="regular" class="font-bold ml-[10px]">Earth Lab</Text>
-        </div> 
-        <div class="flex flex-row items-center">
-          <div class="w-[16px] h-[18px]">
-            <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
-          </div>
-          <Text type="regular" class="font-bold ml-[10px]">Entrepreneurship Club</Text>
-        </div>
-        <div class="flex flex-row items-center">
-          <div class="w-[16px] h-[18px]">
-            <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
-          </div>
-          <Text type="regular" class="font-bold ml-[10px]">Taekwondo</Text>
-        </div>
-        <div class="flex flex-row items-center">
-          <div class="w-[16px] h-[18px]">
-            <Image src={bulletStar} class="w-full h-full object-cover" alt="bullet icon" />
-          </div>
-          <Text type="regular" class="font-bold ml-[10px]">Yoga</Text>
-        </div>
-        <div class="cursor-pointer" data-modal-target="gallery-club-coscholastics" data-target-deck="deck-club-card-coscholastics">
-          <Text type="regular" class='underline uppercase text-accent tracking-wide font-bold'>VIEW all ACtIVITIES</Text>
-        </div>
-      </div>
-      <DeckCard
-        images={[
-          earthLab,
-          taekwondo,
-        ]}
-        class="mt-1 max-md:order-1"
-        id="deck-club-card-coscholastics"
-        target="gallery-club-coscholastics"
+        deckContainerClass="relative left-2 max-md:-left-2"
+        cardHoverStyle={["border-accent"]}
+        gallery={deckCardWithDescription}
+        id="campus-facility1"
       />
     </div>
 
   </Constrain>
-
-  <Gallery
-    id="gallery-clubs"
-    gallery={[
-      { src: gallery1, caption: "Literary Club" },
-      { src: gallery6, caption: "Earth Lab" },
-      { src: gallery7, caption: "Scouts & Guides" },
-    ]}
-  />
-
-  <Gallery
-    id="gallery-coscholastics"
-    gallery={[
-      { src: gallery5, caption: "Taekwando" },
-      { src: gallery4, caption: "Sports" },
-      { src: gallery2, caption: "Performing arts" },
-      { src: gallery3, caption: "Yoga" },
-    ]}
-  />
-
-  <Gallery
-    id="gallery-club-coscholastics"
-    gallery={[
-      { src: gallery4, caption: "Sports" },
-      { src: gallery5, caption: "Taekwando" },
-      { src: gallery6, caption: "Earth Lab" },
-      { src: gallery1, caption: "Literary Club" },
-      { src: gallery2, caption: "Performing arts" },
-      { src: gallery3, caption: "Yoga" },
-      { src: gallery7, caption: "Scouts & Guides" },
-    ]}
-  />
   
 </div>

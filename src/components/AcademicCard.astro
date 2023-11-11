@@ -1,14 +1,17 @@
 ---
+import { Image } from "astro:assets";
 import Text from "./system/Text.astro";
 
 const {
   title,
   description = '',
+  image
 } = Astro.props
 ---
 <div class="
   flex-1 relative group
   academic-boxes
+  h-[400px]
   [&_.text-appear]:delay-0
   [&_.text-appear]:duration-300
   [&.hovered_.text-appear]:delay-300
@@ -16,18 +19,23 @@ const {
   [&.hovered_.text-appear.text-appear-1]:delay-[400ms]
   [&.hovered_.text-appear]:duration-300
 ">
-  <img src="https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png" alt="" srcset="https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png?scale-down-to=512 512w, https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png?scale-down-to=1024 1024w, https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png 1370w" sizes="min(447px, 100vw)" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: cover; image-rendering: auto;" />
-  <div class="absolute left-0 bottom-[30px] w-[10px] h-[60px] group-hover:w-full group-hover:h-[85%] transition-all" style={{
+  <Image src={image} alt={title} width={700} class="w-full object-cover object-center h-[400px] max-md:h-[300px]" />
+  <div class="hidden max-md:flex flex-col items-center bg-accent py-4">
+    <Text type="h3" class='bottom-[37px] max-md:text-[20px] left-[20px] transition-all'>{title}</Text>
+    <Text type="base" class='text-center font-normal w-[90%] mt-2'>{description}</Text>
+  </div>
+  <!-- <img src="https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png" alt="" srcset="https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png?scale-down-to=512 512w, https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png?scale-down-to=1024 1024w, https://framerusercontent.com/images/U6KmUPsgJoTc1gPAyNjhc9Wj4.png 1370w" sizes="min(447px, 100vw)" style="display: block; width: 100%; height: 100%; border-radius: inherit; object-position: center center; object-fit: cover; image-rendering: auto;" /> -->
+  <div class="absolute left-0 max-md:hidden bottom-[30px] w-[10px] h-[60px] group-hover:w-full group-hover:h-[85%] transition-all" style={{
     backdropFilter: 'blur(5px)',
     backgroundColor: 'rgba(233, 84, 55, 0.8)',
     transitionTimingFunction: 'cubic-bezier(0.06, 0.34, 0.2, 1)',
     transitionDuration: '450ms',
   }}></div>
-  <Text type="h3" class='absolute text-[30px] bottom-[37px] left-[20px] group-hover:opacity-0 group-hover:-translate-y-4 transition-all' style={{
-    transitionTimingFunction: 'cubic-bezier(0.06, 0.34, 0.2, 1)',
+  <Text type="h3" class='absolute max-md:hidden text-[30px] bottom-[37px] left-[20px] group-hover:opacity-0 group-hover:-translate-y-4 transition-all' style={{
+    transitionTimingFunction: 'cubic-bezier(0.06, 0.34, `0.2, 1)',
     transitionDuration: '250ms',
   }}>{title}</Text>
-  <div class="absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center px-3">
+  <div class="absolute w-ful max-md:hidden h-full top-0 left-0 flex flex-col items-center justify-center px-3">
     <Text type="h3" class='text-[30px] text-appear opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all' style={{
       transitionTimingFunction: 'cubic-bezier(0.06, 0.34, 0.2, 1)',
     }}>{title}</Text>
