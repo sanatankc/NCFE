@@ -24,31 +24,31 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
       <div>
         <Image src={logo} alt="Glentree's Logo" class="w-16 h-auto self-start" />
         <div class='flex flex-row mt-6'>
-          <a target="_blank" href="https://www.facebook.com/glentreeacademy" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+          <a target="_blank" href="https://www.facebook.com/nationalcentreforexcellence" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={facebook.src} alt="Facebook Icon" class="w-full h-full">
             </div>
           </a>
   
-          <a target="_blank" href="https://twitter.com/GlentreeAcademy" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+          <!-- <a target="_blank" href="https://twitter.com/GlentreeAcademy" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={twitter.src} alt="Twitter Icon" class="w-full h-full">
             </div>
-          </a>
+          </a> -->
   
-          <a target="_blank" href="https://www.instagram.com/glentreeacademyofficial/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+          <a target="_blank" href="https://www.instagram.com/ncfeschool/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={instagram.src} alt="Instagram Icon" class="w-full h-full">
             </div>
           </a>
   
-          <a target="_blank" href="https://www.linkedin.com/company/glentreeacademy/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+          <!-- <a target="_blank" href="https://www.linkedin.com/company/glentreeacademy/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={linkedin.src} alt="Linkedin Icon" class="w-full h-full">
             </div>
-          </a>
+          </a> -->
   
-          <a target="_blank" href="https://www.youtube.com/channel/UCaO_30stUpRzaz5FH1uHWJg" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+          <a target="_blank" href="https://www.youtube.com/@nationalcentreforexcellence" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={youtube.src} alt="Youtube Icon" class="w-full h-full">
             </div>
@@ -59,35 +59,35 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
       </div>
   
       <div class='flex flex-row gap-6 max-md:gap-0 max-md:flex-col'>
-        <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
-          <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Apply Now</Text>
+        <!-- <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
+          <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Explore</Text>
   
           <div class='flex flex-row items-center mb-3'>
-            <a target='_blank' href="/admissions" class="hover:underline">
+            <a target='_blank' href={config.baseURL + "/admissions"} class="hover:underline">
               <Text type={'regular'}>Admission Process</Text>
             </a>
           </div>
   
           <div class='flex flex-row items-center mb-3'>
-            <a target='_blank' href='/scholarship' class="hover:underline"><Text type={'regular'}>Scholarship</Text></a>
+            <a target='_blank' href={config.baseURL + "/scholarship"} class="hover:underline"><Text type={'regular'}>Scholarship</Text></a>
           </div>
 
-        </div>
-        <div class="bg-white/20 w-[1px] h-full max-md:h-[1px] max-md:w-full"></div>
+        </div> -->
+        <!-- <div class="bg-white/20 w-[1px] h-full max-md:h-[1px] max-md:w-full"></div> -->
         <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Campuses</Text>
   
           <div class='flex flex-row items-center mb-3'>
-            <a target='_blank' href={config.baseURL + 'cvr-overview'} class="hover:underline">
-              <Text type={'regular'}>CV Raman Flad</Text>
+            <a target='_blank' href={config.baseURL + '/cvr-overview'} class="hover:underline">
+              <Text type={'regular'}>CV Raman Road</Text>
             </a>
           </div>
   
           <div class='flex flex-row items-center mb-3'>
-            <a target='_blank' href={config.baseURL + 'indiranagar-overview'} class="hover:underline"><Text type={'regular'}>Indiranagar</Text></a>
+            <a target='_blank' href={config.baseURL + '/indiranagar-overview'} class="hover:underline"><Text type={'regular'}>Indiranagar</Text></a>
           </div>
           <div class='flex flex-row items-center mb-3'>
-            <a target='_blank' href={config.baseURL + 'mandur-overview'} class="hover:underline"><Text type={'regular'}>Mandur Road</Text></a>
+            <a target='_blank' href={config.baseURL + '/mandur-overview'} class="hover:underline"><Text type={'regular'}>Mandur Road</Text></a>
           </div>
 
         </div>
