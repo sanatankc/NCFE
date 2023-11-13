@@ -18,6 +18,7 @@ import AdmissionMarquee from '../components/campus/admissionMarquee.astro'
 import Constrain from '../components/system/Constrain.astro';
 import RegisterForm from '../components/register/registerForm.astro'
 import Slide from '../components/system/Slide.astro';
+import skyBG from '../img/skyBG.png'
 import awards from "../images/awards.svg"
 import blobBG from '../images/blobBG.svg'
 
@@ -118,11 +119,26 @@ const faqs = [
             class="
               absolute w-full h-full top-0 left-0
               bg-[linear-gradient(183deg,_rgba(0,_66,_29,_0.00)_31.29%,_#000_97.19%)]
-              max-md:bg-[linear-gradient(180deg,_rgba(0,_66,_29,_0.80)_-40.71%,_#000_50.19%)]
+              max-md:hidden
               z-20
             "
             style={{
               // background: 'linear-gradient(183deg, rgba(0, 66, 29, 0.00) 31.29%, #000 97.19%)',
+              // 'linear-gradient(321deg, rgba(0, 66, 29, 0.10) -2.71%, #000 101.19%)'
+            }}
+          />
+          <div 
+            class="
+              absolute w-full h-full top-0 left-0
+              bg-[linear-gradient(183deg,_rgba(0,_66,_29,_0.00)_31.29%,_#000_97.19%)]
+              hidden
+              max-md:block
+              z-20
+            "
+            style={{
+              background: `url(${skyBG.src})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
               // 'linear-gradient(321deg, rgba(0, 66, 29, 0.10) -2.71%, #000 101.19%)'
             }}
           />
@@ -132,10 +148,10 @@ const faqs = [
           <div class="h-full flex flex-row items-end relative z-20 self-end max-md:self-start max-md:w-full justify-center">
             <div class="flex flex-col items-center mb-10 max-md:mb-2">
               <Text type="h3" class='text-white text-[1.6rem] tracking-wide flex flex-col items-center gap-0'>
-                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] rotate-[-7deg] max-md:rotate-[-5deg] relative  text-accent2 font-semibold font-display leading-[60px] max-md:leading-[36px]">Inspire </div> <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 1px 0px', }}>Excellence</div></div>
-                <div><span class="font-cursive text-[46px] max-md:text-[32px] leading-[50px] text-accent">and</span></div>
-                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] text-accent2 font-semibold italic font-display leading-[60px] max-md:leading-[36px]">Ignite </div> 
-                <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 1px 0px', }}>
+                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] rotate-[-7deg] max-md:rotate-[-5deg] relative  text-accent2 max-md:text-black font-semibold font-display leading-[60px] max-md:leading-[36px]">Inspire </div> <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>Excellence</div></div>
+                <div><span class="font-cursive text-[46px] max-md:text-[32px] leading-[50px] text-accent max-md:text-accent3">and</span></div>
+                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] text-accent2 max-md:text-black font-semibold italic font-display leading-[60px] max-md:leading-[36px]">Ignite </div> 
+                <div class="text-accent  text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>
                   success
                   <div class="w-[170px] max-md:w-[110px] h-[16px] absolute bottom-[-14px]">
                     <img src={underlineSVG.src} alt="Underline" />
