@@ -84,6 +84,7 @@ const faqs = [
     
       <div class='flex flex-col max-md:h-auto min-h-[100svh] relative'>
         <TopNavigationBar hideMenu applyNowButtonId="register-page-apply-now" />
+        <div id="register-form-container-mobile" />
         <div class="h-[88px] w-full bg-white"></div>
 
         <!-- <div class="bg-yellow p-2 text-center text-black flex flex-row max-md:flex-col justify-center items-center group">
@@ -494,7 +495,6 @@ const faqs = [
 
   // dev script temp
   const applyNowButtons = document.querySelectorAll(`[data-apply-now-button="register-page-apply-now"]`)
-  console.log(applyNowButtons)
   applyNowButtons.forEach((applyNowButton => {
     applyNowButton?.addEventListener('click', () => {
       if (window.innerWidth > 768) {
