@@ -136,13 +136,9 @@ const faqs = [
               max-md:block
               z-20
             "
-            style={{
-              background: `url(${skyBG.src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              // 'linear-gradient(321deg, rgba(0, 66, 29, 0.10) -2.71%, #000 101.19%)'
-            }}
-          />
+          >
+            <Image src={skyBG} class="object-cover object-center" alt="Sky background" width={800} />
+          </div>
 
           <div class="max-md:p-2 max-md:block hidden"  />
 
