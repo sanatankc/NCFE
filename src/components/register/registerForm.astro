@@ -9,6 +9,15 @@ import { Image } from 'astro:assets';
 
 import 'tippy.js/dist/tippy.css'; // optional for styling
 
+const campusName = Astro.url.searchParams.get('campus') || '';
+
+const campuses = {
+  cvraman: "CV Raman Nagar",
+  indiranagar: "Indiranagar",
+  mandur: "Mandur",
+}
+
+const selectedCampus = campuses[campusName] || null
 ---
 
 <div class="p-[22px] px-[32px] max-md:px-[18px] bg-white border border-accent2 text-black rounded-xl items-center w-full max-w-[534px] relative z-20 transition-opacity duration-300" id="register-form-container-desktop">
@@ -62,10 +71,11 @@ import 'tippy.js/dist/tippy.css'; // optional for styling
         id="selectBranch"
         title="Please select a Campus"
         options={[
-          "CV Raman Road",
+          "CV Raman Nagar",
           "Indiranagar",
           "Mandur",
         ]}
+        defaultValue={selectedCampus}
         name="campus"
         required
       />
