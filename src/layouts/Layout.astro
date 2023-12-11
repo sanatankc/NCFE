@@ -20,8 +20,6 @@ const { title = 'Best CBSE School in Bangalore | NCFE School' } = Astro.props
 		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
-
-		<script src="https://cdn.pagesense.io/js/vijaykirangroup/e90f86b6a75d4d179ca5d3f6b08506af.js"></script>
 		<!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEL743GRSY"></script>
 		<script>
@@ -56,6 +54,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 	<body>
 		<slot />
 
+		<!-- <script src="https://cdn.pagesense.io/js/vijaykirangroup/e90f86b6a75d4d179ca5d3f6b08506af.js"></script> -->
 	</body>
 </html>
 <style is:global>
@@ -73,6 +72,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 	}
 
 </style>
+
 
 <script>
 	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
