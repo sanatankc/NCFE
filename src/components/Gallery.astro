@@ -7,7 +7,6 @@ import { Image } from "astro:assets";
 const { id, gallery, currentLink, link, closeLink } = Astro.props
 const slideId = 'slide' + id
 
-console.log('slideId...', slideId)
 ---
 
 <Modal openDefault={Boolean(currentLink === link && link && currentLink)} link={link} closeLink={closeLink} id={id} class="h-screen backdrop-blur-sm p-9 max-md:p-0" containerClass="max-md:flex max-md:items-center">
@@ -127,7 +126,6 @@ console.log('slideId...', slideId)
 
     const nextSlideIndex = activeSlideIndex === allSlidesLength - 1 ? 0 : activeSlideIndex + 1
 
-    console.log('next slidess ...', activeSlideIndex === allSlidesLength - 1, activeSlideIndex, allSlidesLength)
 
 
     const nextSlide = document.querySelector<HTMLElement>(`[data-target-slide="${slideId}"][data-target-slide-i="${nextSlideIndex}"]`)

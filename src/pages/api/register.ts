@@ -1,4 +1,6 @@
 import type { APIRoute } from "astro";
+import postMCB from "./adapters/mcb/post";
+
 
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
@@ -26,16 +28,22 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   console.log('formdata...', formData)
+  await postMCB({
+    studentName,
+    parentName,
+    phone,
+    email,
+    campus,
+    grade,
+  })
 
-  const response = await fetch('https://script.google.com/macros/s/AKfycbwOV1zlrnIduiluW3iMoqEzLVHKHTVUwXq8O-PpoLJtrH6QNxPDv5LaXrpGEaFKi2A5Jw/exec', {
+  
+  
+  
+  const response = fetch('https://script.google.com/macros/s/AKfycbwOV1zlrnIduiluW3iMoqEzLVHKHTVUwXq8O-PpoLJtrH6QNxPDv5LaXrpGEaFKi2A5Jw/exec', {
     method: 'POST',
     body: formData
   });
-
-  const res =  await response.json()
-
-
-  console.log('res...', res)
 
 
   // Validate the data - you'll probably want to do more than this

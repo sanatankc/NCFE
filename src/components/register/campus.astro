@@ -19,15 +19,15 @@ import config from '../../config'
   <Constrain>
     <div class='relative z-10 flex flex-col items-center'>
       <Text type="subtitle" class='text-accent3'>THREE CAMPUSES, ONE VISION</Text>
-      <Text type='h2' class='mt-3 text-black'>Our{' '}<span class='text-accent'>Branches</span></Text>
+      <Text type='h2' class='mt-3 text-black'>3{' '}<span class='text-accent'>Campuses</span></Text>
 
       <div class='grid grid-cols-3 gap-8 max-md:gap-4 max-md:grid-rows-2 max-md:grid-cols-1 justify-between mt-8'>
         <!-- <a href='https://glentreeacademy.com/glentree-whitefield/'> -->
-          <CampusCard  link={config.baseURL + 'cvr-overview'} image={cvr} name='CV Raman' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Discover a world of learning on our 7.5-acre campus dedicated for 18 years to fostering young minds." />
-          <CampusCard link={config.baseURL + 'indiranagar-overview'} image={indiranagar} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indiranagar' desc="Established in 2017, our JBN Campus equip your child not just for life’s challenges but also for leadership." />
+          <CampusCard  link={config.baseURL + '/cvr-overview'} image={cvr} name='CV Raman' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Discover a world of learning on our 7.5-acre campus dedicated for 18 years to fostering young minds." />
+          <CampusCard link={config.baseURL + '/indiranagar-overview'} image={indiranagar} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indiranagar' desc="Established in 2017, our JBN Campus equip your child not just for life’s challenges but also for leadership." />
         <!-- </a> -->
         <!-- <a href='/glentree-sarajapura/'> -->
-          <CampusCard upcomingRibbon link={config.baseURL + ' mandur-overview'} image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
+          <CampusCard upcomingRibbon link={config.baseURL + '/mandur-overview'} image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
         <!-- </a> -->
       </div>
     </Constrain>

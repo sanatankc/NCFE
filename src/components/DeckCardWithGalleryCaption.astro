@@ -12,7 +12,6 @@ const {
   closeLink
 } = Astro.props
 
-console.log('gallery --> ', gallery)
 
 const images = gallery.map(slide => (
   {src: slide.src, alt: slide.caption}
@@ -20,7 +19,6 @@ const images = gallery.map(slide => (
 
 const deckCardId = 'deck-' + id
 
-console.log('currentLink --> ', currentLink)
 ---
 
 <DeckCard

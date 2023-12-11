@@ -13,25 +13,32 @@ export const closeCollapsible = (collapsible: HTMLElement) => {
 
   const collapsibleContent = collapsible.querySelector('.collapsible-content') as HTMLElement
   const collapseIcon = collapsible.querySelector('.collapse-icon')
+  const collapseTitle = collapsible.querySelector('.collapsible-title')
   if (!collapseIcon) return
 
   collapsibleContent.style.maxHeight = '0px'
   collapseIcon.innerHTML = '+'
+  collapseTitle?.classList.remove('text-accent')
+
 }
 
 const toggleCollapsible = (collapsible: HTMLElement) => {
   if (!collapsible) return
   const collapsibleContent = collapsible.querySelector('.collapsible-content') as HTMLElement
   const collapseIcon = collapsible.querySelector('.collapse-icon')
+  const collapseTitle = collapsible.querySelector('.collapsible-title')
   if (!collapseIcon) return
 
   const isOpened = collapseIcon.innerHTML === '-'
   if (isOpened) {
     collapsibleContent.style.maxHeight = '0px'
     collapseIcon.innerHTML = '+'
+    collapseTitle?.classList.remove('text-accent')
   } else {
+    console.log('open')
     collapsibleContent.style.maxHeight = '100vh'
     collapseIcon.innerHTML = '-'
+    collapseTitle?.classList.add('text-accent')
   }
 }
 

@@ -6,23 +6,27 @@ import Select from '../system/Select.astro'
 import whatsappIcon from '../../icons/whatsAppIcon.svg'
 import SelectPill from '../system/SelectPill.astro'
 import { Image } from 'astro:assets';
+import apiResponse from '../../pages/api/adapters/mcb/get';
 
 import 'tippy.js/dist/tippy.css'; // optional for styling
 
 const campusName = Astro.url.searchParams.get('campus') || '';
+
 
 const campuses = {
   cvraman: "CV Raman Nagar",
   indiranagar: "Indiranagar",
   mandur: "Mandur",
 }
-
 const selectedCampus = campuses[campusName] || null
+
+console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
+
 ---
 
 <div class="p-[22px] px-[32px] max-md:px-[18px] bg-white border border-accent2 text-black rounded-xl items-center w-full max-w-[534px] relative z-20 transition-opacity duration-300" id="register-form-container-desktop">
   <div class="w-full form">
-    <Text type="h3" class='text-[32px] text-center'>Register Now for <span class="text-accent2">AY 2024-25</span></Text>
+    <Text type="h3" class='text-[32px] text-center'>Apply Now for <span class="text-accent2">AY 2024-25</span></Text>
     <Text type="sm" class="text-black/70 text-center font-semibold max-md:text-sm">Fill the form below and we’ll get in touch shortly!</Text>
     
     <form class="flex-col flex gap-[23px] mt-8 max-md:mt-6" id="register-form"  method="POST">
@@ -70,24 +74,20 @@ const selectedCampus = campuses[campusName] || null
         placeholder="Choose Campus"
         id="selectBranch"
         title="Please select a Campus"
-        options={[
-          "CV Raman Nagar",
-          "Indiranagar",
-          "Mandur",
-        ]}
+        options={apiResponse.branches.map(branch => branch.BranchName)}
         defaultValue={selectedCampus}
         name="campus"
         required
-      />
+      />  
 
       <SelectPill
         placeholder="Select Grade"
-        id="grade"
+        id="selectDisabled"
         title="Please select a grade"
         options={[
-          "Nursery",
-          "LKG",
-          "UKG",
+          "Pre-Primary 1",
+          "Pre-Primary 2",
+          "Pre-Primary 3",
           "Grade 1",
           "Grade 2",
           "Grade 3",
@@ -101,9 +101,22 @@ const selectedCampus = campuses[campusName] || null
           "Grade 11",
           "Grade 12",
         ]}
-        name="grade"
-        required
+        name="selectDisabled"
+        disabled
       />
+      {apiResponse.branches.map((branch, i) => (
+        <SelectPill
+          placeholder="Select Grade"
+          id={"grade-select-" + i}
+          title="Please select a grade"
+          options={branch.classes.map(grade => grade.ClassName)}
+          name={"grade" + i}
+          required
+          class="hidden"
+        />
+      ))}
+
+
   
       <div class="flex flex-row">
         <input type="checkbox" class="accent-accent2 cursor-pointer" name="whatsappConsent" id="whatsappConsent" />
@@ -116,7 +129,7 @@ const selectedCampus = campuses[campusName] || null
           </label>
         </Text>
       </div>
-      <Button bigButton type='submit' class='w-full [&>button]:w-full [&>button]:justify-center max-md:mt-0 apply-now-register-button'>Apply Now</Button>
+      <Button bigButton type='submit' class='w-full [&>button]:w-full [&>button]:justify-center max-md:mt-0 apply-now-register-button'>SUBMIT</Button>
     </form>
   </div>
   <div class="w-full success-msg flex flex-col gap-2">
@@ -159,14 +172,89 @@ const selectedCampus = campuses[campusName] || null
 <script>
   import tippy from 'tippy.js';
 
+  const campuses = {
+    cvraman: "CV Raman Nagar",
+    indiranagar: "Indiranagar",
+    mandur: "Mandur",
+  }
+
+  let loading = false
   
+
+  const selectGrade1Container = document.querySelector('[data-select-parent-id="grade-select-0"]');
+  const selectGrade2Container = document.querySelector('[data-select-parent-id="grade-select-1"]');
+  const selectGrade3Container = document.querySelector('[data-select-parent-id="grade-select-2"]');
+
+  
+  const selectAdmissionYear = document.querySelector('[data-select-parent-id="selectAdmissionYear"]');
+  
+  const selectBranchEl = document.querySelector('[data-select-parent-id="selectBranch"] select');
+  
+  const selectBranchOptions = document.querySelectorAll('[data-select-parent-id="selectBranch"] [data-value]');
+  selectGrade1Container.style.display = 'none';
+  selectGrade2Container.style.display = 'none';
+  selectGrade3Container.style.display = 'none';
+
+  const updateGradesOptions = (campusName) => {
+    document.querySelector('[data-select-parent-id="selectDisabled"]').style.display = 'none';
+    if (campusName === campuses.cvraman) {
+      selectGrade1Container.querySelector('select').required = true
+      selectGrade1Container.style.display = 'block';
+      selectGrade2Container.style.display = 'none';
+      selectGrade3Container.style.display = 'none';
+      // required for form validation
+      selectGrade2Container.querySelector('select').required = false
+      selectGrade3Container.querySelector('select').required = false
+    } else if (campusName === campuses.indiranagar) {
+      selectGrade2Container.querySelector('select').required = true
+
+      selectGrade1Container.style.display = 'none';
+      selectGrade2Container.style.display = 'block';
+      selectGrade3Container.style.display = 'none';
+
+      selectGrade1Container.querySelector('select').required = false
+      selectGrade3Container.querySelector('select').required = false
+    } else if (campusName === campuses.mandur) {
+
+      selectGrade1Container.style.display = 'none';
+      selectGrade2Container.style.display = 'none';
+      selectGrade3Container.style.display = 'block';
+
+      selectGrade1Container.querySelector('select').required = false
+      selectGrade2Container.querySelector('select').required = false
+      selectGrade3Container.querySelector('select').required = true
+
+    }
+  }
+
+  // show grades when branch is selected
+  selectBranchEl.addEventListener('change', (e) => {
+    updateGradesOptions(e.target.value)
+  })
+
+  selectBranchOptions.forEach((option) => {
+    option.addEventListener('click', (e) => {
+      updateGradesOptions(option.innerText)
+    })
+  })
   
    const registerForm = document.getElementById('register-form')
    registerForm?.addEventListener('submit', async (e) => {
       e.preventDefault()
+      if (loading) return
+      loading = true
       const formData = new FormData(e.target as HTMLFormElement);
       
+      const grade1 = formData.get('grade1')
+      const grade2 = formData.get('grade2')
+      const grade3 = formData.get('grade3')
+      const grade = grade1 || grade2 || grade3
       formData.append('form-name', 'register-form');
+      formData.delete("grade1")
+      formData.delete("grade2")
+      formData.delete("grade3")
+      formData.append("grade", grade)
+
 
       // append everything in urlsearchparams to formData
       const urlSearchParams = new URLSearchParams(window.location.search);
@@ -181,8 +269,9 @@ const selectedCampus = campuses[campusName] || null
         method: "POST",
         body: formData,
       });
-      document.querySelector('.apply-now-register-button').classList.remove('loading')
       const data = await response.json();
+      document.querySelector('.apply-now-register-button').classList.remove('loading')
+      loading = false
       if (data.message) {
         let params = Array.from(formData.entries()).reduce((memo, [key, value]) => ({
           ...memo,
