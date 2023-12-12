@@ -273,6 +273,9 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
       document.querySelector('.apply-now-register-button').classList.remove('loading')
       loading = false
       if (data.message) {
+        console.log(`
+          data --> 
+        `, data)
         let params = Array.from(formData.entries()).reduce((memo, [key, value]) => ({
           ...memo,
           [key]: value,
@@ -282,7 +285,8 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
           ...params,
           
         }
-        fbq('track', 'CompleteRegistration', {
+        console.log('fbq -->', fbq)
+        window.fbq('track', 'CompleteRegistration', {
           value: 0.00,
           currency: 'INR',
           em: formData.get('email'),
