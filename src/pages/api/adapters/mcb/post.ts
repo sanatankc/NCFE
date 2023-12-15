@@ -14,7 +14,8 @@ const postMCB = async ({
   email,
   campus,
   grade,
-  utmCampaign = ""
+  utm_campaign,
+  QueryContactSourceID,
 }) => {
   const res = await fetch('https://api.myclassboard.com/api/EnquiryService/Save_EnquiryDetails', {
     method: 'POST',
@@ -33,6 +34,8 @@ const postMCB = async ({
       "GuardianEmailID": email,
       "Guardianname": parentName,
       "GuardianMobileno": phone,
+      utm_campaign,
+      QueryContactSourceID
     })
   }); 
   const data = await res.json()  

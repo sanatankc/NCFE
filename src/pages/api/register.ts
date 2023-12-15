@@ -27,7 +27,16 @@ export const POST: APIRoute = async ({ request }) => {
     formData.append(entry[0], entry[1]);
   }
 
-  console.log('formdata...', formData)
+  const sources = {
+    facebook: 26,
+    google: 23
+  }
+
+  const utmSource = data.get("utm_source");
+  const utm_campaign = data.get("utm_campaign") || null;
+  const QueryContactSourceID = sources[utmSource] || null;
+
+
   await postMCB({
     studentName,
     parentName,
@@ -35,6 +44,8 @@ export const POST: APIRoute = async ({ request }) => {
     email,
     campus,
     grade,
+    QueryContactSourceID,
+    utm_campaign
   })
 
   
