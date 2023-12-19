@@ -110,7 +110,7 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
           id={"grade-select-" + i}
           title="Please select a grade"
           options={branch.classes.map(grade => grade.ClassName)}
-          name={"grade" + i}
+          name={"grade" + (i + 1)}
           required
           class="hidden"
         />
@@ -273,9 +273,6 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
       document.querySelector('.apply-now-register-button').classList.remove('loading')
       loading = false
       if (data.message) {
-        console.log(`
-          data --> 
-        `, data)
         let params = Array.from(formData.entries()).reduce((memo, [key, value]) => ({
           ...memo,
           [key]: value,
