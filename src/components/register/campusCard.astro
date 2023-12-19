@@ -5,7 +5,8 @@ const { image, class: className, name, desc, link, upcomingRibbon } = Astro.prop
 ---
 
 <div data-link={link} class:list={[
-  'relative max-md:w-full h-[432px] cursor-pointer max-md:h-[350px] rounded-2xl flex flex-col justify-end max-md:p-0 overflow-hidden group',
+  'relative max-md:w-full h-[432px] max-md:h-[350px] rounded-2xl flex flex-col justify-end max-md:p-0 overflow-hidden group',
+  // "cursor-pointer",
   className
 ]}
 >
@@ -24,9 +25,9 @@ const { image, class: className, name, desc, link, upcomingRibbon } = Astro.prop
   </div>
 </div>
 <script>
-  document.querySelectorAll('[data-link]').forEach(el => {
-    el.addEventListener('click', () => {
-      window.open(el.dataset.link, "_self"); 
-    })
-  })
+  // document.querySelectorAll('[data-link]').forEach(el => {
+  //   el.addEventListener('click', () => {
+  //     window.open(el.dataset.link, "_self"); 
+  //   })
+  // })
 </script>
