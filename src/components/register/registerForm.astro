@@ -295,6 +295,16 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
       }
     })
 
+    let params = (new URL(document.location)).searchParams;
+
+    const campusName = params.get('campus') || '';
+    const selectedCampus = campuses[campusName] || null
+
+
+    if (!!selectedCampus) {
+      updateGradesOptions(selectedCampus)
+    }
+
 
     tippy(`[data-select-parent-id="selectDisabled"]`, {
       content: '<span class="text-sm">Before choosing a grade, please select a campus.</span>',
