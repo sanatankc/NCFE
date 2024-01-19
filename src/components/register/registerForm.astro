@@ -172,6 +172,17 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
 <script>
   import tippy from 'tippy.js';
 
+  const convertToSHA256 = (string: string) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(string);
+    return crypto.subtle.digest('SHA-256', data).then((hash) => {
+      const hexString = Array.from(new Uint8Array(hash))
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
+      return hexString;
+    });
+  };
+
   const campuses = {
     cvraman: "CV Raman Nagar",
     indiranagar: "Indiranagar",
@@ -282,13 +293,16 @@ console.log("apiReponse -->", JSON.stringify(apiResponse.branches, null, 2))
           ...params,
           
         }
-        console.log('fbq -->', fbq)
+        const email = await convertToSHA256(formData.get('email'))
+        const phone = await convertToSHA256(formData.get('phone'))
+        const parentName = await convertToSHA256(formData.get('parentName'))
+
         window.fbq('track', 'CompleteRegistration', {
           value: 0.00,
           currency: 'INR',
-          em: formData.get('email'),
-          ph: formData.get('phone'),
-          fn: formData.get('parentName'),
+          em: email,
+          ph: phone,
+          fn: parentName,
         })
         window.gtag_report_conversion()
         document.getElementById('register-form-container-desktop').classList.add('form-completed')
