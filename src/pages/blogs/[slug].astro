@@ -1,0 +1,131 @@
+---
+import TopNavigationBar from '../../components/TopNavigationBar.astro';
+import Text from '../../components/system/Text.astro';
+import { marked } from 'marked'
+import Layout from '../../layouts/Layout.astro';
+
+import '../../global.css'
+import { Image } from 'astro:assets';
+
+import { getEntries, getEntry, type CollectionEntry, getCollection } from 'astro:content';
+
+import Footer from "../../components/landingPage/Footer.astro";
+
+const { slug = '' } = Astro.params;
+
+export async function getStaticPaths() {
+  const allBlogs = await getCollection('blogs')
+  return allBlogs.map(({ slug }) => ({
+    params: {
+      slug
+    }
+  }))
+}
+
+const blogContent = await getEntry('blogs', slug) as CollectionEntry<'blogs'>
+const data = blogContent?.data
+
+const blogContentHTML = marked.parse(data.blog)
+const publishedDate = new Date(data.publishedDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+})
+
+---
+
+
+<Layout title={data.titleTag || data.title} description={data.metaDescription || undefined}>
+  <main class="flex flex-col h-screen w-screen relative bg-white">
+
+    <div 
+      class="flex-1"
+    >
+    <div class="w-full top-0 left-0 z-[0] h-[400px] max-md:h-[400px absolute" >
+
+    </div>
+      <div class='flex flex-col relative z-[10]'>
+        <div class='h-[100.44px] max-md:h-[70px] w-full'>
+        </div>
+        <TopNavigationBar />
+        <div class='w-full flex flex-col items-center py-12 pb-2 max-md:py-6 max-md:px-6'>
+          <div class="p-4"></div>
+          <Text 
+            type='h1'
+            class='max-w-[800px] tracking-normal text-center text-black'
+          >{data.title}</Text>
+          <div class="p-3"></div>
+          
+          <div class="flex flex-row max-md:flex-col items-center gap-4">
+            <Text type="xs" class="text-gray-400 font-[600]">
+              {publishedDate}
+            </Text>
+            <div class="text-slate-400 max-md:hidden block">
+              •
+            </div>
+            <a href={`/blogs/category/${data.category}`}>
+              <div class="bg-primary p-[2px] bg-red-400 px-2 uppercase rounded">
+                <Text type="xs" class='font-bold  text-white'>
+                  {data.category}
+                </Text>
+              </div>
+            </a>
+            <div>
+
+            </div>
+          </div>
+
+
+          <div class="p-4 max-md:p-1"></div>
+    
+          <div class="max-md:hidden block">
+            <div class="md:w-[800px] w-full">
+              <Image 
+                src={data.thumbnail}
+                alt="education-1"
+                class="w-full h-full object-cover rounded-lg"
+                width={800}
+                height={500}
+              />
+            </div>
+          </div>
+
+          <div class="md:hidden block">
+            <div class="h-[250px]">
+              <Image 
+                src={data.thumbnail}
+                alt="education-1"
+                class="h-[250px] object-cover"
+                width={800}
+                height={200}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="p-5 max-md:p-0"></div>
+        <div class='
+          content text-black mt-12 max-w-[800px] m-auto
+          text-lg max-md:text-lg
+          max-md:px-5 max-md:mt-8
+          [&>h3]:text-2xl [&>h3]:tracking-tight [&>h3]:font-display [&>h3]:max-md:text-2xl
+          [&>ol]:list-decimal [&>ol]:list-inside
+          flex flex-col gap-4
+          pb-8
+          [&>*]:w-full
+          [&>p>img]:w-full
+          [&>img]:w-full
+          [&_a]:text-blue-700
+          [&_a]:underline
+          ' 
+        set:html={blogContentHTML}
+        >
+
+        </div>
+      </div>
+  <Footer />
+
+    </div>
+
+  </main>
+</Layout>

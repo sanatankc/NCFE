@@ -101,14 +101,14 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
 
 
 <header
-  class="w-screen bg-white py-1 px-14 max-md:px-5 box-border flex flex-row justify-between items-center backdrop-blur-md fixed z-[99]"
+  class=" bg-white border border-slate-200  py-2 px-5 md:px-10 box-border w-full flex flex-row justify-between items-center backdrop-blur-md fixed z-[99]"
 >
   {hideMenu ? (
     <div class="relative z-10 daisy daisy-fixed daisy-1 w-[70px]">
       <Image src={logo} alt="Glentree's Logo" width={150} />
     </div>
   ) : (
-    <a href="/" class="relative z-10 daisy daisy-fixed daisy-1">
+    <a href="/" class="relative z-10 w-[70px] daisy daisy-fixed daisy-1">
       <Image src={logo} alt="Glentree's Logo" width={150} />
     </a>
   )}
@@ -117,6 +117,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
       {
         menu.map((item, i) => {
           if (item.submenu && item.submenu.length > 0) {
+
             return (
               <div
                 class={`relative menu-parent cursor-pointer daisy daisy-2 daisy-fixed`}
@@ -127,7 +128,8 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
                     i >= menu.length - 1 && "mr-0 max-md:mr-0",
                   ]}
                 >
-                  <span class="text-white font-semibold hover:underline">
+                 {/*  <span class="text-white font-semibold hover:underline"> */}
+                   <span class="hidden font-semibold hover:underline">
                     {item.title}
                   </span>
                   <div class="w-6 h-6 ml-1">
@@ -146,11 +148,12 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
                   </div>
                 </div>
                 <div
-                  class="absolute w-[250px] pt-[10px] menu"
+                  class="absolute w-[250px] md:hidden pt-[10px] menu"
                   style={{
                     boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.5)",
                   }}
                 >
+
                   {item.submenu.map((subitem, j) => (
                     <div
                       class="py-[14px] px-3 bg-[#121212]"
@@ -173,7 +176,8 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
                 </div>
               </div>
             );
-          } else if (item.link) {
+          }
+          else if (item.link) {
             return (
               <a
                 href={item?.link}
@@ -191,7 +195,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
 
     {applyNowButtonId && (
       <div class="w-full h-14 bottom-0 left-0 z-10 flex max-md:hidden items-center justify-center gap-4 mr-8" data-pixel-contact-target>
-        <div 
+        <div
           class="w-4 h-4"
         >
           <Image src={PhoneWhite} alt="Phone" class="w-full h-full object-cover" />
@@ -228,10 +232,10 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
           <span></span>
         </div>
       </form>
-  
+
     </div>
     <div
-      class="mobileMenu absolute top-0 left-0 w-screen h-screen bg-black flex flex-col pt-20 overflow-scroll"
+      class="mobileMenu absolute w-[184vw] top-0 bottom-0 left-0 right-0 h-[182vh] bg-black flex flex-col pt-20 overflow-scroll"
       class="max-md:visible hidden"
     >
       {
@@ -268,7 +272,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
                 <div class="subMenu">
                   {item.submenu.map((subMenuItem) => (
                     <div
-                      class="relative py-[14px] px-5 mr-8 max-md:mr-0 w-full"
+                      class="relative py-[14px]  px-5 mr-8 max-md:mr-0 w-full"
                       style={{
                         borderBottom: "1px solid rgba(255, 255, 255, 0.2)",
                       }}
@@ -413,7 +417,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
     transform-origin: 0% 100%;
   }
 
-  /* 
+  /*
   * Transform all the slices of hamburger
   * into a crossmark.
   */
