@@ -82,10 +82,7 @@ const first3Blogs = allBlogs.slice(0, 3)
             > </MultiStyleText>
           </Text> -->
           <Text type="h3">
-            <MultiStyleText
-                text="Most Recent Blogs"
-                classes={["text-purple-300", "text-blue-200","text-green-200","text-orange-200","text-purple-300","text-blue-200","text-green-200","text-purple-300","text-orange-200","text-red-300","text-purple-300","text-red-300","text-red-300","text-red-300","text-red-300","text-red-300","text-red-300"]}
-            > </MultiStyleText>
+              Most Recent <span class="text-[#eb5133]" >  Blogs</span>
           </Text>
 
 
@@ -139,12 +136,9 @@ const first3Blogs = allBlogs.slice(0, 3)
             <div class="pt-[6px] flex flex-row w-full justify-between max-md:gap-4 gap-0">
 
               <Text type="h3">
-                <MultiStyleText
-                    text={category}
-                    classes={colors}
-                >
-                  {category}
-                </MultiStyleText>
+                  <span class="text-[#eb5133]">{category.split(' ').slice(0,1)
+                  }</span> &nbsp;
+                  {category.split(' ').slice(1,category.length-1)}
               </Text>
               <a href={`/blogs/category/${category}`} class="flex flex-row flex-shrink-0 items-center gap-2 group">
                 <Text type="regular" class="group-hover:-translate-x-1 hover:text-orange-500 transition-smooth duration-500 transition-[transform,color] font-[700] group-hover:text-primary">View More Blogs</Text>
