@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets"
+import Text from "./system/Text.astro"
+
+const {
+  date = '',
+  category=null,
+  title,
+  description,
+  image,
+  imageClass,
+  slug,
+
+} = Astro.props
+---
+<a href={"/blogs/" + slug} class="w-full h-full flex flex-col group cursor-pointer">
+  <div class:list={["w-full flex-1 bg-red-100 border h-auto max-md:min-h-[250px] min-h-[unset]", imageClass]} style={{
+    backgroundImage: `url("${image}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}>
+  </div>
+  <div class="pt-[20px] ">
+    <div class= "flex flex-row">
+      <Text type="xs" class="text-left text-slate-500/80  font-[600] transition-smooth transition-colors duration-300 group-hover:text-orange-500">{date}</Text>
+      {category && (
+        <div class="p-1"> </div>
+        <Text type="xs" class="text-left text-slate-500/80 uppercase font-[600] transition-smooth transition-colors duration-300 group-hover:text-orange-500">• </Text>  
+        <div class="p-1"> </div>
+        <Text type="xs" class="text-left text-slate-500/80 uppercase font-[600] transition-smooth transition-colors duration-300 group-hover:text-orange-500">{category}</Text>  
+      )}
+    </div>
+    <div class="pt-[4px]"></div>
+    <Text type="h4" class="!text-[24px] font-bold !font-sans transition-smooth transition-colors  duration-300 group-hover:text-orange-500 ">{title}</Text>
+    <!-- <Text type="base">Hello</Text> -->
+  </div>
+</a>

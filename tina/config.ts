@@ -4,8 +4,8 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
 export default defineConfig({
   branch,
-  clientId: "8b588526-21ee-4f45-b047-bac58fdad52f", // Get this from tina.io
-  token: "517ca57aaa53235b5783e0aae9e2ed6ab9f2d38a", // Get this from tina.io
+  clientId: "73cb9138-5acb-4a5a-8f26-13c24465ba00", // Get this from tina.io
+  token: "32c41415ead66de5cec889a856131f532684e39c", // Get this from tina.io
 
   build: {
     outputFolder: "admin",
@@ -93,7 +93,7 @@ export default defineConfig({
             label: "VirtualCampusLink",
             required: true,
           },
-         
+
           {
             type: "string",
             name: "affiliationNo",
@@ -107,9 +107,9 @@ export default defineConfig({
             list: true,
             fields: [
               { type: "string", name: "title", label: "Title" },
-              { type: "string", name: "description", label: "Description", ui: {component: "textarea"} },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
               { type: "string", name: "ctaText", label: "CTA Text" },
-              { 
+              {
                 type: "object",
                 list: true,
                 label: 'Gallery',
@@ -132,9 +132,9 @@ export default defineConfig({
               })
             },
             list: true,
-            fields: [{ type: "image", name: "image", label: "image" },{ type: "string", name: "title", label: "Title" }],
+            fields: [{ type: "image", name: "image", label: "image" }, { type: "string", name: "title", label: "Title" }],
           },
-                
+
         ],
       },
       {
@@ -145,7 +145,7 @@ export default defineConfig({
           {
             type: "object",
             list: true,
-            label: "Disclosure", 
+            label: "Disclosure",
             name: "disclosure",
             ui: {
               itemProps: (item) => ({

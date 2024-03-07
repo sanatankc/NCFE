@@ -1,34 +1,24 @@
 ---
+import { Image } from "astro:assets"
 const { slides: slidesData, id } = Astro.props
 
 const slides = slidesData.map(({ 
-  image_desktop, 
-  image_mobile, 
-  position = 'top' 
+  image, 
+  position = 'top',
+  alt = 'slide-img'
 }, i) => {
-  const slide = image_desktop
-  if (!image_mobile) {
     return {
-      slide,
+      slide: image,
       position,
       picture: false,
+      alt
     }
-  }
-  const responsiveSlide = [
-    { src: image_desktop, media: "(min-width: 768px)" },
-    { src: image_mobile, media: "(max-width: 768px)" },
-  ]
-  return {
-    slide: responsiveSlide,
-    position,
-    picture: true,
-  }
 }).reverse()
 
 ---
 <div class="relative w-full h-full" data-slides={id}>
   {
-    slides.map(({ slide, position, picture }, i) =>
+    slides.map(({ slide, position, picture, alt }, i) =>
       picture ? (
         <picture
           class:list={[
@@ -46,20 +36,23 @@ const slides = slidesData.map(({
               objectPosition: position
             }} />
           ))}
-          <img src={slide[0]} alt="slide-img" class="w-full h-full object-cover" style={{
+          <img src={slide[0]} alt={alt} class="w-full h-full object-cover" style={{
             objectPosition: position
           }} />
         </picture>
       ) : (
-        <div
+        <Image
+          width={1920}
+          height={1080}
+          alt=""
           class:list={[
-            "slideshow-item w-full h-full absolute top-0 left-0 bg-no-repeat bg-cover",
+            "slideshow-item w-full h-full absolute top-0 left-0 object-no-repeat object-cover",
             i === 0 ? "opacity-1" : "opacity-0",
           ]}
+          src={slide}
           style={{
-            backgroundImage: `url("${slide}")`,
+            objectPosition: position,
             transition: "1s all ease-in-out",
-            backgroundPosition: position,
           }}
           data-slide={id}
         />
