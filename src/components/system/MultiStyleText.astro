@@ -1,0 +1,18 @@
+---
+const { text, classes, style } = Astro.props
+let styles = [
+  { color: 'red' },
+  { color: 'blue' },
+  { color: 'green' },
+  { color: 'yellow' },
+  { color: 'pink' }
+];
+---
+{text.split('').map((letter, index) => (
+  <span class={classes[index]}>
+    {letter}
+  </span>
+))
+
+
+}

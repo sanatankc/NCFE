@@ -96,22 +96,22 @@ const faqs = [
         <div class="w-full flex-1 h-full relative p-12 py-2 flex flex-row max-md:flex-col justify-between items-center max-md:p-8 max-md:px-4">
           <div class="w-full h-full absolute top-0 left-0 max-md:hidden">
             <Slide
-              slides={[
-                { image_desktop: slide1.src, image_mobile: slide1MB.src, position: 'center' },
-                { image_desktop: slide2.src, image_mobile: slide2MB.src, position: 'bottom' },
-                { image_desktop: slide3.src, image_mobile: slide2MB.src, position: 'center' }
-              ]}
+            slides={[
+              { image: slide1, position: 'center' },
+              { image: slide2, position: 'bottom' },
+              { image: slide3, position: 'center' }
+            ]}
               id="resiter-page-hero"
             />
           </div>
 
           <div class="w-full absolute top-0 left-0 bg-red-100 hidden max-md:block">
             <Slide
-              slides={[
-                { image_desktop: slide1MB.src, image_mobile: slide1MB.src, position: 'center' },
-                { image_desktop: slide2MB.src, image_mobile: slide2MB.src, position: 'center' },
-                { image_desktop: slide3MB.src, image_mobile: slide3MB.src, position: 'center' }
-              ]}
+            slides={[
+              { image: slide1MB, position: 'top' },
+              { image: slide2MB, position: 'top' },
+              { image: slide3MB, position: 'top' }
+            ]}
               id="resiter-page-hero-mb"
             />
           </div>
@@ -123,10 +123,7 @@ const faqs = [
               max-md:hidden
               z-20
             "
-            style={{
-              // background: 'linear-gradient(183deg, rgba(0, 66, 29, 0.00) 31.29%, #000 97.19%)',
-              // 'linear-gradient(321deg, rgba(0, 66, 29, 0.10) -2.71%, #000 101.19%)'
-            }}
+          
           />
           <div 
             class="

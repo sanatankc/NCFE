@@ -93,7 +93,7 @@ export default defineConfig({
             label: "VirtualCampusLink",
             required: true,
           },
-         
+
           {
             type: "string",
             name: "affiliationNo",
@@ -107,9 +107,9 @@ export default defineConfig({
             list: true,
             fields: [
               { type: "string", name: "title", label: "Title" },
-              { type: "string", name: "description", label: "Description", ui: {component: "textarea"} },
+              { type: "string", name: "description", label: "Description", ui: { component: "textarea" } },
               { type: "string", name: "ctaText", label: "CTA Text" },
-              { 
+              {
                 type: "object",
                 list: true,
                 label: 'Gallery',
@@ -132,9 +132,9 @@ export default defineConfig({
               })
             },
             list: true,
-            fields: [{ type: "image", name: "image", label: "image" },{ type: "string", name: "title", label: "Title" }],
+            fields: [{ type: "image", name: "image", label: "image" }, { type: "string", name: "title", label: "Title" }],
           },
-                
+
         ],
       },
       {
@@ -145,7 +145,7 @@ export default defineConfig({
           {
             type: "object",
             list: true,
-            label: "Disclosure", 
+            label: "Disclosure",
             name: "disclosure",
             ui: {
               itemProps: (item) => ({
