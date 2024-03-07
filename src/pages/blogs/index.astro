@@ -56,16 +56,10 @@ const first3Blogs = allBlogs.slice(0, 3)
 <!-- grid gap-4 grid-cols-3 -->
 
 <Layout title="Blogs | Best CBSE School in Bangalore | Glentree Academy School">
-  <main class="flex flex-col relative text-black items-center">
-    <div class="w-full top-0 left-0 z-[0] h-[400px] absolute" style={{
-      background: "white"
-    }}>
-
-    </div>
-
+ 
     <TopNavigationBar />
     <div class="h-[130.44px] max-md:h-[120px] w-full z-[-1] bg-white"></div>
-    <div class="w-full relative">
+    <div class=" w-[120vw] sm:w-full relative">
       <!-- <Image src={bgWhiteContourPattern} alt="background pattern" class="w-full absolute z-0 opacity-40" /> -->
       <!-- <Image src={bigCTASplashVectorBG} alt="background pattern" class="absolute z-0 opacity-40 top-0 right-0 -scale-x-100" /> -->
       <div class="w-full px-[90px] max-md:px-[20px] z-10 relative flex flex-col items-start">
@@ -133,13 +127,16 @@ const first3Blogs = allBlogs.slice(0, 3)
           ]
 
           return (
-            <div class="pt-[6px] flex flex-row w-full justify-between max-md:gap-4 gap-0">
+            <div class="pt-[6px]  flex flex-row w-full items-center justify-between max-md:gap-4 gap-0">
 
               <Text type="h3">
-                  <span class="text-[#eb5133]">{category.split(' ').slice(0,1)
-                  }</span> &nbsp;
+                <span class="flex items-center justify-center gap-1">
+                  <span class="text-[#eb5133] ">{category.split(' ').slice(0,1)
+                  }</span> 
                   {category.split(' ').slice(1,category.length-1)}
+                </span>
               </Text>
+            
               <a href={`/blogs/category/${category}`} class="flex flex-row flex-shrink-0 items-center gap-2 group">
                 <Text type="regular" class="group-hover:-translate-x-1 hover:text-orange-500 transition-smooth duration-500 transition-[transform,color] font-[700] group-hover:text-primary">View More Blogs</Text>
                 <div class="w-3 h-3  group-hover:filter invert-[61%] sepia-[41%] saturate-[739%] hue-rotate-[310deg] brightness-[96%] contrast-[94%]">
@@ -147,6 +144,7 @@ const first3Blogs = allBlogs.slice(0, 3)
                 </div>
               </a>
             </div>
+      
             <div class="mt-[10px] mb-[20px] h-[1px] bg-black/10 w-full"></div>
 
 
@@ -165,7 +163,7 @@ const first3Blogs = allBlogs.slice(0, 3)
       </div>
     </div>
   </main>
-  <div class="text-white w-full mt-12">
+  <div class="text-white w-[120vw] sm:w-full mt-12">
     <Footer />
   </div>
 </Layout>
