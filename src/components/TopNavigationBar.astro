@@ -112,7 +112,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
       <Image src={logo} alt="Glentree's Logo" width={150} />
     </a>
   )}
-  {!hideMenu && (
+  <!--{!hideMenu && (
     <div class="flex flex-row items-center max-md:hidden">
       {
         menu.map((item, i) => {
@@ -190,8 +190,8 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
         })
       }
     </div>
-  )}
-  <div class:list={["flex flex-row items-center relative max-md:hidden", hideMenu && 'max-md:!flex']}>
+  )}-->
+  <div class:list={["flex flex-row items-center relative ", hideMenu && 'max-md:!flex']}>
 
     {applyNowButtonId && (
       <div class="w-full h-14 bottom-0 left-0 z-10 flex max-md:hidden items-center justify-center gap-4 mr-8" data-pixel-contact-target>
@@ -213,7 +213,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
       </div>
     ) : (
       <a
-        href="https://admissions.glentreeacademy.com"
+        href="/"
         target="_blank"
         class="daisy daisy-fixed daisy-3"
       >
@@ -222,7 +222,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
     )}
   </div>
 
-  {!hideMenu && (
+   <!--{!hideMenu && (
     <div class="max-md:block hidden">
       <form autocomplete="off">
         <div id="menuToggle">
@@ -234,7 +234,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
       </form>
 
     </div>
-    <div
+   <div
       class="mobileMenu absolute w-[184vw] top-0 bottom-0 left-0 right-0 h-[182vh] bg-black flex flex-col pt-20 overflow-scroll"
       class="max-md:visible hidden"
     >
@@ -310,7 +310,7 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
         })
       }
     </div>
-  )}
+  )}-->
 
 
   <div class="hidden">
