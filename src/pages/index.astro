@@ -1,520 +1,175 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TopNavigationBar from '../components/TopNavigationBar.astro';
-
-import WhyGlentree from '../components/register/whyGlentree.astro';
-import Campus from '../components/register/campus.astro';
-
-import Testimonial from '../components/landingPage/Testimonial.astro';
-import Scholarship from '../components/register/scholarship.astro';
-import '../global.css'
-
-import '@fontsource/nunito-sans';
-import Footer from '../components/landingPage/Footer.astro';
-import Text from '../components/system/Text.astro';
+import Layout from "../../layouts/Layout.astro";
+import TopNavigationBar from "../../components/TopNavigationBar.astro";
+import Text from "../../components/system/Text.astro";
 import { Image } from 'astro:assets';
-import AdmissionMarquee from '../components/campus/admissionMarquee.astro'
+import BlogCard from '../../components/BlogCard.astro'
 
-import Constrain from '../components/system/Constrain.astro';
-import RegisterForm from '../components/register/registerForm.astro'
-import Slide from '../components/system/Slide.astro';
-import skyBG from '../img/skyBG.png'
-import awards from "../images/awards.svg"
-import blobBG from '../images/blobBG.svg'
+import Footer from "../../components/landingPage/Footer.astro";
+import "../../global.css";
+import DownArrow from '../../icons/DownArrow.svg'
+import { getEntries, getCollection, type CollectionEntry } from 'astro:content';
 
-import slide1 from "../img/slides/1.jpg";
-import slide2 from "../img/slides/2.jpg";
-import slide3 from "../img/slides/3.jpg";
+import MultiStyleText from '../../components/system/MultiStyleText.astro'
+export function getStaticPaths() {
+  return [
+    { params: { school: "whitefield" } },
+    { params: { school: "sarjapur" } },
+  ];
+}
 
-import slide1MB from "../img/slides/1.jpg";;
-import slide2MB from "../img/slides/2.jpg";;
-import slide3MB from "../img/slides/3.jpg";;
+const { school } = Astro.params;
+let allBlogs = await getCollection('blogs')
+
+allBlogs = allBlogs.map((blog) => {
+  return {
+    ...blog,
+    data: {
+      ...blog.data,
+      dateString: new Date(blog.data.publishedDate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    }
+  }
+}).sort((a, b) => {
+  return new Date(b.data.publishedDate) - new Date(a.data.publishedDate)
+})
 
 
+const blogsByCategory = allBlogs.reduce((acc, blog) => {
+  if (acc[blog.data.category]) {
+    acc[blog.data.category].push(blog)
+  } else {
+    acc[blog.data.category] = [blog]
+  }
+  return acc
+}, {})
 
-import PhoneWhite from '../icons/PhoneWhite.svg'
-import Faqs from '../components/faqs.astro';
-import AcademicsBox from '../components/AcademicsBox.astro';
+const first3Blogs = allBlogs.slice(0, 3)
 
 
-
-import prePrimary from '../img/academics/preview/prePrimary.webp'
-import grade3to5 from '../img/academics/preview/grade3to5.webp'
-import grade6to8 from '../img/academics/preview/grade6to8.webp'
-import grade9to12 from '../img/academics/preview/grade9to12.jpg'
-import AcademicCard from '../components/AcademicCard.astro';
-
-import underlineSVG from '../img/underline.svg'
-const faqs = [
-  {
-    question: 'How do I apply for admission to Glentree Academy?',
-    answer: ''
-  },
-  {
-    question: 'What are the admission requirements?',
-    answer: ''
-  },
-  {
-    question: 'Is there an application deadline for admissions?',
-    answer: ''
-  },
-  {
-    question: 'What are the tuition fees for the programs?',
-    answer: ''
-  },
-  {
-    question: 'How do I schedule a campus visit?',
-    answer: ''
-  },
-]
 
 ---
 
-<Layout title="Apply Now | Best CBSE School in Bangalore | National Center for Excellence">
-  <main class="flex flex-col min-h-[98svh] max-md:h-auto w-screen relative">
-    <div 
-      class="flex-1 flex flex-col main-container max-md:h-auto min-h-[98svh] w-screen"
-      id="scroll-area"
-      style={{
-        overflowY: 'overlay',
-        overflowX: 'hidden',
-      }}
-    >
+<!-- grid gap-4 grid-cols-3 -->
 
-    
-      <div class='flex flex-col max-md:h-auto min-h-[100svh] relative'>
-        <TopNavigationBar hideMenu applyNowButtonId="register-page-apply-now" />
-        <div id="register-form-container-mobile" />
-        <div class="h-[88px] w-full bg-white"></div>
+<Layout title="Blogs | Best CBSE School in Bangalore | Glentree Academy School">
+ 
+    <TopNavigationBar />
+    <div class="h-[130.44px] max-md:h-[120px] w-full z-[-1] bg-white"></div>
+    <div class=" w-[120vw] sm:w-full relative">
+      <!-- <Image src={bgWhiteContourPattern} alt="background pattern" class="w-full absolute z-0 opacity-40" /> -->
+      <!-- <Image src={bigCTASplashVectorBG} alt="background pattern" class="absolute z-0 opacity-40 top-0 right-0 -scale-x-100" /> -->
+      <div class="w-full px-[90px] max-md:px-[20px] z-10 relative flex flex-col items-start">
+        <!-- <Text type="h2" class="mt-14 text-black max-md:mt-8 max-md:text-3xl">Blogs <span class='bg-accent2 text-white px-3 py-1 rounded-md'>Corner</span></Text>
+        <Text type="base" class="mt-5 max-w-[700px] text-center max-md:p-4 max-md:text-sm max-md:mt-2">Explore insightful articles and updates showcasing educational knowledge, student development, and engaging content on holistic learning.</Text> -->
+        <div class="pt-[10px] max-md:pt-[0px]"></div>
 
-        <!-- <div class="bg-yellow p-2 text-center text-black flex flex-row max-md:flex-col justify-center items-center group">
-          <Text type='regular' class="font-bold uppercase tracking-widest">Limited-period offer</Text>
-          <div class="px-2" />
-          <Text type='base' class="font-bold">Rs. 10,000 off on Admission Fees</Text>
-        </div> -->
+        <div class="pt-[6px] flex flex-row w-full justify-between">
 
-        <div class="w-full flex-1 h-full relative p-12 py-2 flex flex-row max-md:flex-col justify-between items-center max-md:p-8 max-md:px-4">
-          <div class="w-full h-full absolute top-0 left-0 max-md:hidden">
-            <Slide
-            slides={[
-              { image: slide1, position: 'center' },
-              { image: slide2, position: 'bottom' },
-              { image: slide3, position: 'center' }
-            ]}
-              id="resiter-page-hero"
+          <!-- <Text type="h3">
+            <MultiStyleText
+                text="Most Recent Blogs"
+                classes={["text-purple", "text-blue-100", "text-green-200", "text-orange-200", "text-primary", "text-purple", "text-blue-100", "text-green-200", "text-orange-200", "text-primary", "text-purple", "text-blue-100", "text-primary", "text-primary", "text-primary", "text-primary", "text-primary"]}
+            > </MultiStyleText>
+          </Text> -->
+          <Text type="h3">
+              Most Recent <span class="text-[#eb5133]" >  Blogs</span>
+          </Text>
+
+
+          <a href="/category/All" class="flex flex-row items-center group-hover:text-orange-500 gap-2 group flex-shrink-0">
+            <Text type="regular" class="group-hover:-translate-x-1 group-hover:text-orange-500 transition-smooth duration-500 transition-[transform,color] font-[700] group-hover:text-primary">View All Blogs</Text>
+            <div class="w-3 h-3 group-hover:text-orange-500  group-hover:filter invert-[61%] sepia-[41%] saturate-[739%] hue-rotate-[310deg] brightness-[96%] contrast-[94%]">
+              <Image src={DownArrow} alt="down arrow" class="-rotate-90  w-full h-full" />
+            </div>
+          </a>
+        </div>
+        <div class="mt-[10px] mb-[20px] h-[1px] bg-black/10 w-full"></div>
+
+
+        <div class="w-full flex flex-row max-md:flex-col max-md:h-auto h-[600px] gap-[30px]">
+
+
+
+          <div class="h-full w-[65%] max-md:w-full">
+            <BlogCard category={first3Blogs[0].data.category}
+              title={first3Blogs[0].data.title}
+              slug={first3Blogs[0].slug}
+              image={first3Blogs[0].data.thumbnail}
+              date={first3Blogs[0].data.dateString}
             />
           </div>
-
-          <div class="w-full absolute top-0 left-0 bg-red-100 hidden max-md:block">
-            <Slide
-            slides={[
-              { image: slide1MB, position: 'top' },
-              { image: slide2MB, position: 'top' },
-              { image: slide3MB, position: 'top' }
-            ]}
-              id="resiter-page-hero-mb"
-            />
+          <div class="h-full flex-1 flex flex-col gap-[30px]">
+            <div class="flex-1 h-[50%]">
+              <BlogCard category={first3Blogs[1].data.category} title={first3Blogs[1].data.title} slug={first3Blogs[1].slug} date={first3Blogs[1].data.dateString} image={first3Blogs[1].data.thumbnail} />
+            </div>
+            <div class="flex-1 h-[50%]">
+              <BlogCard category={first3Blogs[2].data.category} title={first3Blogs[2].data.title} slug={first3Blogs[2].slug} date={first3Blogs[2].data.dateString} image={first3Blogs[2].data.thumbnail} />
+            </div>
           </div>
 
-          <div 
-            class="
-              absolute w-full h-full top-0 left-0
-              bg-[linear-gradient(183deg,_rgba(0,_66,_29,_0.00)_31.29%,_#000_97.19%)]
-              max-md:hidden
-              z-20
-            "
-          
-          />
-          <div 
-            class="
-              absolute w-full h-full top-0 left-0
-              bg-[linear-gradient(183deg,_rgba(0,_66,_29,_0.00)_31.29%,_#000_97.19%)]
-              hidden
-              max-md:block
-              z-20
-            "
-          >
-            <Image src={skyBG} class="object-cover object-center" alt="Sky background" width={800} />
-          </div>
+        </div>
 
-          <div class="max-md:p-2 max-md:block hidden"  />
+        <div class="pt-[90px]"></div>
 
-          <div class="h-full flex flex-row items-end relative z-20 self-end max-md:self-start max-md:w-full justify-center">
-            <div class="flex flex-col items-center mb-10 max-md:mb-2">
-              <Text type="h3" class='text-white text-[1.6rem] tracking-wide flex flex-col items-center gap-0'>
-                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] rotate-[-7deg] max-md:rotate-[-5deg] relative  text-accent2 max-md:text-black font-semibold font-display leading-[60px] max-md:leading-[36px]">Inspire </div> <div class="text-accent text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px]" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>Excellence</div></div>
-                <div><span class="font-cursive text-[46px] max-md:text-[32px] leading-[50px] text-accent max-md:text-accent3">and</span></div>
-                <div class="flex flex-row gap-5"><div class="text-[56px] max-md:text-[32px] text-accent2 max-md:text-black font-semibold italic font-display leading-[60px] rotate-[-7deg]  max-md:leading-[36px]">Ignite </div> 
-                <div class="text-accent  text-[50px] max-md:text-[28px] italic font-display leading-[50px] max-md:leading-[36px] relative" style={{ textShadow: 'rgb(237, 181, 75) 0px 2px 0px', }}>
-                  Success
-                  <div class="w-[170px] max-md:w-[110px] h-[16px] absolute bottom-[-14px]">
-                    <img src={underlineSVG.src} alt="Underline" />
-                  </div>
-                </div>
-              </div>
+        {Object.keys(blogsByCategory).map(category => {
+          const categorySplit = category.split(' ')
+          const categoryWithoutLastWord = categorySplit.slice(0, categorySplit.length - 1).join(' ')
+          const categoryLastWord = categorySplit[categorySplit.length - 1]
+          const colors = ["text-purple-300", "text-blue-200","text-green-200","text-orange-200","text-purple-300","text-blue-200","text-green-200","text-purple-300","text-orange-200","text-red-300","text-purple-300","text-red-300","text-red-300","text-red-300","text-red-300","text-red-300","text-red-300"]
+
+          const splicedColors = [
+            ...colors.slice(0, categoryWithoutLastWord.length),
+            ...(new Array(categoryLastWord.length + 1)).fill('text-primary')
+          ]
+
+          return (
+            <div class="pt-[6px]  flex flex-row w-full items-center justify-between max-md:gap-4 gap-0">
+
+              <Text type="h3">
+                <span class="flex items-center justify-center gap-1">
+                  <span class="text-[#eb5133] ">{category.split(' ').slice(0,1)
+                  }</span> 
+                  {category.split(' ').slice(1,category.length-1)}
+                </span>
               </Text>
+            
+              <a href={`/category/${category}`} class="flex flex-row flex-shrink-0 items-center gap-2 group">
+                <Text type="regular" class="group-hover:-translate-x-1 hover:text-orange-500 transition-smooth duration-500 transition-[transform,color] font-[700] group-hover:text-primary">View More Blogs</Text>
+                <div class="w-3 h-3  group-hover:filter invert-[61%] sepia-[41%] saturate-[739%] hue-rotate-[310deg] brightness-[96%] contrast-[94%]">
+                  <Image src={DownArrow} alt="down arrow" class="-rotate-90 w-full h-full" />
+                </div>
+              </a>
             </div>
-          </div>
-          <div class="max-md:py-4" />
-          <RegisterForm />
-        </div>
-        <AdmissionMarquee class="max-md:!hidden" />
-        <!-- <div class="w-[50px] h-[50px] down-arrow-button transition-all duration-500 rounded-[50%] bg-accent border-accent/60 border-[4px] absolute top-[97vh] left-[50%] z-[9999] flex items-center justify-center max-md:hidden">
-          <div class="w-[18px] h-[9px] down-arrow-icon">
-            <Image src={DownArrow} alt="Down Arrow" class="w-full h-full object-cover" />
-          </div>
-        </div> -->
-      </div>
-
-    <div class='relative p-20 pb-10 max-md:p-5 text-black' style={{
-      background: 'linear-gradient(180deg, rgba(232, 225, 212, 0%), rgba(232, 225, 212, 44%))',
-    }}>
-      <Constrain>
-        <div class='relative z-10 flex flex-col items-center'>
-          <Text type="subtitle" class='text-accent3'>Explore Our Legacy</Text>
-          <Text type='h2' class='mt-3 text-black'>An{' '}<span class='text-accent'>Overview</span></Text>
-          <Text type="base" class="mt-6">Discover the landscape of NCFE's offerings: A glimpse into our world of excellence and diversity</Text>
-          <div class="w-[870px] max-md:w-full max-md:h-[450px] h-[537px] flex flex-col mt-8">
-            <div class="flex flex-row flex-1 border-b border-dashed border-black/20">
-              <div class="flex-1 flex px-2 flex-col items-center justify-center border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent">3000+</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Students
-                </Text>
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent3 flex items-start">
-                  3
-                </Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Campuses
-                </Text>
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col">
-                <Text type="h2" class="max-md:text-[26px] text-accent">200+</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Teachers
-                </Text>
-              </div>
-            </div>
-            <div class="flex flex-row flex-1 border-b border-dashed border-black/20">
-              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent3">15:1</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Student-Teacher Ratio
-                </Text>
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent">18</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Years of Excellence
-                </Text>
-                
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col">
-                <Text type="h2" class="max-md:text-[26px] text-accent3 flex flex-row items-start">
-                  13
-                </Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Student Clubs
-                </Text>
-              </div>
-            </div>
-            <div class="flex flex-row flex-1">
-              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent">24</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Co-Scholastics
-                </Text>
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col border-black/20">
-                <Text type="h2" class="max-md:text-[26px] text-accent3">K-12</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Grades
-                </Text>
-              </div>
-              <div class="flex-1 flex px-2 items-center justify-center flex-col">
-                <Text type="h2" class="max-md:text-[26px] text-accent">4000+</Text>
-                <Text type='base' class='mt-3 font-normal text-center'>
-                  Alumni
-                </Text>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Constrain>
-    </div>
-
-
-
-
-   
       
+            <div class="mt-[10px] mb-[20px] h-[1px] bg-black/10 w-full"></div>
 
-    <div class='w-full p-14 pb-20 text-black bg-white flex flex-col items-center max-md:p-6'>
-      <div class="flex-1">
-        <Text type="subtitle" class='text-accent3 font-medium !text-base'>OUR CURRICULUM</Text>
-        <Text type='h2' class='mt-3 text-black'>Academic</Text>
-        <div class="flex flex-row items-center gap-3 mt-3">
-          <div class="bg-accent w-[100px] h-[2px]"></div>
-          <Text type='h2' class='text-accent text-[56px] font-medium italic'>Landscape</Text>
-        </div>
-        <Text type="base" class="mt-14 max-md:mt-6">
-          We have reimagined academics to promote active, hands-on, and personalized learning. Our approach goes beyond subjects, linking STEM with the humanities, language with the arts, and classroom lessons with real-world experience. Our curriculum is both innovative and challenging, advancing through four academic stages: <span class="text-accent font-medium">Fledgling, Watering, Blossoming, and Basking.</span>
-        </Text>
-      </div>
 
-      <div class="flex flex-col gap-5 max-md:gap-3 w-full mt-8">
-        <div class="flex flex-row max-md:flex-col w-full gap-3 text-white">
-          <AcademicCard
-            link="https://navigate-designer-808266.framer.app/academic-stages#pp-grade2"
-            title="Foundational Years<br/>(Pre-Primary - Grade 2)"
-            description="At the Foundational Years(Fledgling), our young learners engage in joyful, inclusive experiences, focusing on overall development through experiential learning and play."
-            image={prePrimary}
-          />
-          <AcademicCard
-            link="https://navigate-designer-808266.framer.app/academic-stages#grade3-grade5"
-            title="Preparatory Years(Grade 3-5)"
-            description="At the Preparatory Years(Watering), we cultivate inclusive learning, with a focus on fundamental skills and nurturing the ability to inquire about the world around them."
-            image={grade3to5}
-          />
-        </div>
-        <div class="flex flex-row max-md:flex-col w-full gap-3 text-white">
-          <AcademicCard
-            link="https://navigate-designer-808266.framer.app/academic-stages#grade6-grade8"
-            title="Middle Years(Grade 6-8)"
-            description="At the Middle Years(Blossoming), we facilitate transdisciplinary learning, guiding students to identify patterns around them, fostering a holistic educational experience."
-            image={grade6to8}
-          />
-          <AcademicCard
-            link="https://navigate-designer-808266.framer.app/academic-stages#grade9-grade12"
-            title="Secondary Years(Grade 9-12)"
-            description="At the Secondary Years(Basking), our emphasis is on cultivating in-depth concept understanding, ensuring academic excellence and future success."
-            image={grade9to12}
-          />
-        </div>
-      </div>
-      <!-- <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-16 max-w-[1196px]'>
-        <div class="flex flex-row w-full">
-          <div class="flex-1 justify-center items-center">
-            <Image src={prePrimary} alt="Pre Primary"  />
-          </div>
-          <div class="flex-1">
-            <Text type="subtitle" class='text-accent3 font-medium !text-base'>PRE-PRIMARY TO GRADE 2</Text>
-            <Text type='h3' class='mt-3 text-black'>Foundation Years</Text>
-            <div class="flex flex-row items-center gap-3">
-              <div class="bg-accent w-[80px] h-[2px]"></div>
-              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Fledging Stage</Text>
+            <div class="flex flex-row gap-[30px] h-[400px]  max-md:h-[unset]  max-md:flex-col">
+              {blogsByCategory[category].slice(0, 3).map(blog => (
+                <BlogCard imageClass="max-h-[250px]" title={blog.data.title} slug={blog.slug} date={blog.data.dateString} image={blog.data.thumbnail} />
+              ))}
             </div>
-            <Text type="base" class="mt-2">Our Early Years program nurtures every aspect of a child's growth. We guide them through activities that enhance their emotional (affective), intellectual (cognitive), and physical (psychomotor) development. Learning is fun and interactive with our play-based approach, and free play with friends in a supportive environment helps build social skills.</Text>
-          </div>
-        </div>
+          <div class="pt-[50px]"></div>
+          )
+        }
+
+
+
+        )}
       </div>
-      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
-        <div class="flex flex-row w-full">
-          <div class="flex-1">
-            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 3 TO GRADE 5</Text>
-            <Text type='h3' class='mt-3 text-black'>Preparatory Years</Text>
-            <div class="flex flex-row items-center gap-3">
-              <div class="bg-accent w-[80px] h-[2px]"></div>
-              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Watering Stage</Text>
-            </div>
-            <Text type="base" class="mt-2">The Preparatory Stage, designed for 8 to 11-year-olds, emphasises a hands-on approach to learning as outlined in the National Education Policy. Students explore and understand complex ideas through active experimentation, keen observation, and engaging with real-world scenarios. Integrating play with practical activities, this stage fosters a holistic understanding for young learners.</Text>
-          </div>
-          <div class="flex-1 flex justify-end items-end">
-            <Image src={grade3to5} alt="Pre Primary" class="w-[80%]" />
-          </div>
-        </div>
-      </div>
-      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
-        <div class="flex flex-row w-full">
-          <div class="flex-1 justify-center items-center">
-            <Image src={grade6to8} alt="Pre Primary" class="w-[80%]" />
-          </div>
-          <div class="flex-1">
-            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 6 TO GRADE 8</Text>
-            <Text type='h3' class='mt-3 text-black'>Middle Years</Text>
-            <div class="flex flex-row items-center gap-3">
-              <div class="bg-accent w-[80px] h-[2px]"></div>
-              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Blossoming Stage</Text>
-            </div>
-            <Text type="base" class="mt-2">The Middle Stage builds on earlier foundations by introducing students to more complex topics across diverse subjects. Emphasising skill integration and critical thinking, it encourages practical application of knowledge. This experiential, multidisciplinary approach ensures students gain essential life skills.</Text>
-          </div>
-        </div>
-      </div>
-      <div class='w-full flex-col flex items-center rounded-2xl max-md:rounded-2xl overflow-hidden mt-28 max-w-[1196px]'>
-        <div class="flex flex-row w-full">
-          <div class="flex-1">
-            <Text type="subtitle" class='text-accent3 font-medium !text-base'>GRADE 9 TO GRADE 12</Text>
-            <Text type='h3' class='mt-3 text-black'>Secondary Years</Text>
-            <div class="flex flex-row items-center gap-3">
-              <div class="bg-accent w-[80px] h-[2px]"></div>
-              <Text type='h3' class='text-accent text-[1.9rem] font-medium italic'>Basking Stage</Text>
-            </div>
-            <Text type="base" class="mt-2">The Secondary Stage nurtures competencies with a learner-centric approach, ensuring active participation and experiential learning. Students enjoy flexibility in choosing subjects that align with their ambitions, fostering joy in learning and a multidisciplinary perspective. This stage strengthens understanding, values, and critical thinking, preparing students for life's various paths.</Text>
-          </div>
-          <div class="flex-1 flex justify-end items-center">
-            <Image src={grade9to12} alt="Pre Primary" class="w-[75%]" />
-          </div>
-        </div>
-      </div> -->
     </div>
-
-    <WhyGlentree />
-
-
-    <!-- <LFL /> -->
-
-
-    <Campus />
-
-      
-
-
-
-    <!-- <Scholarship /> -->
-    <Testimonial />
-
-
-    <div class="w-full items-center flex flex-col bg-white">
-      <div class="p-4" />
-
-      <Text type="subtitle" class='text-accent3'>THINGS TO NOTE</Text>
-      <Text type='h2' class='mt-3 text-accent'>FAQs</Text>
-
-      <div class="p-4" />
-      <Faqs />
-      <div class="p-3" />
-    </div>
-
-
-    
-
-    <!-- <BigAdmissionCTA /> -->
-
-    <!-- <GlentreeFamily /> -->
-    <Footer />
-    </div>
-
-
   </main>
+  <div class="text-white w-[120vw] sm:w-full mt-12">
+    <Footer />
+  </div>
 </Layout>
 
 <style>
-  .float{
-    position:fixed;
-    /* background-color:#25d366; */
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    /* box-shadow: 2px 2px 3px #999; */
-    z-index:100;
-  }
-
-  .float > div {
-    opacity: 0;
-    transition: 0.6s all ease-in-out
-  }
-  .float a:hover ~ div {
-    opacity: 1;
-  }
-
-  .my-float{
-    margin-top:16px;
-  }
-
-  .down-arrow-button {
-    -moz-animation: bounce 2s infinite;
-    -webkit-animation: bounce 2s infinite;
-    animation: bounce 2s infinite;
-    overflow: hidden;
-  }
-  
-  .down-arrow-button:before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100%;
-    background-image: linear-gradient(
-        120deg,
-        rgba(255,255,255, 0) 30%,
-        rgba(255,255,255, .8),
-        rgba(255,255,255, 0) 70%
-    );
-    top: 0;
-    left: -100px;
-    opacity: 0.6;
-    animation: shineDownArrow 3s ease-out infinite;
-  }
-  
-  @keyframes shineDownArrow {
-    0% {left: -100px}
-    20% {left: 100%}
-    100% {left: 100%}
+  .a {
+    grid-template-columns: repeat(12, calc(100% / 12));
   }
 </style>
-
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '576465059806171');
-  fbq('track', 'PageView');
-</script>
-
-
-<script>
-  // @@ts-ignore
-
-  const academicBoxes = document.querySelectorAll('.academic-boxes')
-  document.querySelectorAll('.academic-boxes').forEach((academicBox) => {
-    academicBox.addEventListener('mouseenter', () => {
-      academicBox.classList.add('hovered')
-    })
-    academicBox.addEventListener('mouseleave', () => {
-      academicBox.classList.remove('hovered')
-    })
-  })
-
-  const pixelContactTargets = document.querySelectorAll('[data-pixel-contact-target]')
-
-  pixelContactTargets.forEach((pixelContactTarget) => {
-    pixelContactTarget.addEventListener('click', () => {
-      fbq('track', 'Contact');
-    })
-  })
-
-  // dev script temp
-  const applyNowButtons = document.querySelectorAll(`[data-apply-now-button="register-page-apply-now"]`)
-  applyNowButtons.forEach((applyNowButton => {
-    applyNowButton?.addEventListener('click', () => {
-      if (window.innerWidth > 768) {
-        const registerFormContainer = document.getElementById('register-form-container-desktop')
-        registerFormContainer?.scrollIntoView({ behavior: 'smooth' })
-      } else {
-        const registerFormContainer = document.getElementById('register-form-container-mobile')
-        registerFormContainer?.scrollIntoView({ behavior: 'smooth' })
-      }
-    })
-  }))
-
-  import collapsible, { openCollapsible } from '../components/admissions/collapsible'
-  collapsible('.collapsible', null)
-
-  const downArrowButton = document.querySelector('.down-arrow-button')
-  document.addEventListener('scroll', (e) => {
-    // after scrolling 100px, show the button
-    if (window.scrollY > window.innerHeight / 5) {
-      downArrowButton?.classList.add('opacity-0')
-    }
-  })
-  const mainContainer = document.querySelector('.main-container')
-  if (mainContainer) {
-  }
-</script>
