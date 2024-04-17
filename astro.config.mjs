@@ -10,7 +10,7 @@ export default defineConfig({
   integrations: [sitemap(), tailwind()],
   output: 'hybrid',
   adapter: cloudflare({
-      imageService: 'cloudflare'
+      imageService: 'compile'
   }),
   server: (command) => ({ port: command === 'dev' ? 3000 : 4000, host: true })
 });
