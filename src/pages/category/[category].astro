@@ -11,13 +11,7 @@ import DownArrow from '../icons/DownArrow.svg'
 import { getEntries, getCollection, type CollectionEntry } from 'astro:content';
 import MultiStyleText from "../../components/system/MultiStyleText.astro";
 
-export function getStaticPaths() {
-  return [
-    { params: { school: "whitefield" } },
-    { params: { school: "sarjapur" } },
-  ];
-}
-
+export const prerender = false;
 const { school } = Astro.params;
 let allBlogs = await getCollection('blogs')
 
@@ -98,7 +92,7 @@ const headerColors = [
 
 
         <div class="flex md:gap-[30px] px-1 md:self-start self-start gap-0 md:justify-start w-full">
-          <a href="/blogs/category/All">
+          <a href="/category/All">
             <div class:list={[
               "[&.active]:bg-slate-300/50 px-[10px] font-[600] cursor-pointer py-[8px] rounded-md",
               isAllActive()]} data-tab-btns>
@@ -107,7 +101,7 @@ const headerColors = [
           </a>
 
           {categories.map(category => (
-            <a href={`/blogs/category/${category}`} class="flex-shrink-0">
+            <a href={`/category/${category}`} class="flex-shrink-0">
               <div class:list={[
                 "[&.active]:bg-slate-300/50 px-[10px] font-[600] cursor-pointer py-[8px] rounded-md",
                 isActive(category)
