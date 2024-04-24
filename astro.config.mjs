@@ -6,7 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://glentreeacademy.com/",
+  site: "https://ncfeblogs.pages.dev/",
   integrations: [sitemap(), tailwind()],
   output: 'hybrid',
   adapter: cloudflare({
