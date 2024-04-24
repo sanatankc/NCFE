@@ -1,8 +1,9 @@
 ---
-category: NCFE
+category: Education
 publishedDate: 2024-01-14T18:30:00.000Z
 title: NCFE Success Stories
 thumbnail: /images/NCFE/Success Stories.png
+caption: ''
 blog: >
   At NCFE, our guiding principle is clear and straightforward: ‘Inspire
   Excellence and Ignite Success.’ This isn’t just a slogan for us—it’s a
