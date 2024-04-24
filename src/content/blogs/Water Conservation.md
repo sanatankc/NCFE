@@ -3,8 +3,9 @@ category: Health & Wellness
 publishedDate: 2024-03-06T18:30:00.000Z
 title: Water Conservation
 thumbnail: /images/NCFE/Water Conservation.jpg
+caption: ''
 blog: >
-  ”Be the change you wish to see in the world”- Mahatma Gandhi
+  ”*Be the change you wish to see in the world*”- Mahatma Gandhi
 
 
   As educators, it's our responsibility to secure a brighter future for our
@@ -35,7 +36,7 @@ blog: >
   students how to conserve water in school and at home.
 
 
-  ### How to save water in schools
+  ##### How to save water in schools
 
 
   Water conservation is a critical practice that should be embraced by everyone,
@@ -103,10 +104,10 @@ blog: >
   At [NCFE Bangalore](https://ncfeschools.com/ "NCFE Bangalore"), we teach
   students that by implementing these strategies, we can significantly reduce
   water wastage. Saving water not only benefits the school community but also
-  contributes to a more sustainable future for generations to come. 
+  contributes to a more sustainable future for generations to come.
 
 
-  ### How to Save Water at Home
+  ##### How to Save Water at Home
 
 
   As parents, we must ensure a better future for our children. It is our
@@ -162,7 +163,7 @@ blog: >
   practices.
 
 
-  ### Conclusion
+  ##### Conclusion
 
 
   In conclusion, water conservation is a crucial endeavour that must be pursued
