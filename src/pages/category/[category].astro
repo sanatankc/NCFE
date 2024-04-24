@@ -34,7 +34,6 @@ allBlogs = allBlogs.map((blog) => {
 
 let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
 
-
 export async function getStaticPaths() {
   let allBlogs = await getCollection('blogs')
   allBlogs = allBlogs.map((blog) => {
@@ -52,15 +51,15 @@ export async function getStaticPaths() {
   }).sort((a, b) => {
     return new Date(b.data.publishedDate) - new Date(a.data.publishedDate)
   })
-  let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
-  return {
+  let categories = [...new Set(allBlogs.map(blog => blog.data.category))] 
+  return [
     ...categories.map(category => ({
       params: {
         category
       },
-    }),
+    })),
     { params: { category: 'All' } },
-  )}
+  ]
 }
 
 const { category = '' } = Astro.params;
@@ -113,8 +112,8 @@ const headerColors = [
         <div class="mt-28 w-full"></div>
 
         <Text type="h3" class="self-start">
-             {header.split(' ').slice(0,1)}&nbsp;    
-             <span class="text-[#eb5133]">{header.split(' ').slice(1,2)}</span>
+             {headerWithoutLastWord}&nbsp;    
+             <span class="text-[#eb5133]">{headerLastWord}</span>
         </Text>
 
         <div class="pt-[25px] max-md:pt-[10px]"></div>
