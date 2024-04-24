@@ -5,9 +5,9 @@ title: Importance of sports in holistic education
 thumbnail: /images/NCFE/Importance of Sports.jpg
 caption: ''
 blog: >
-  "They told me I could be anything, so I became an athlete and a scholar. Turns
-  out, they weren't wrong." - Michael Jordan, former basketball player and
-  entrepreneur.
+  "*They told me I could be anything, so I became an athlete and a scholar.
+  Turns out, they weren't wrong.*" - Michael Jordan, former basketball player
+  and entrepreneur.
 
 
   These inspiring words echo what many parents dream for their children: success
@@ -35,17 +35,17 @@ blog: >
   These are some examples of sports activities that promote physical health.
 
 
-  * Running helps improve cardiovascular health, strengthens muscles, and boosts
-  endurance.
+  1. Running helps improve cardiovascular health, strengthens muscles, and
+  boosts endurance.
 
-  * Swimming works out the whole body, from arms and legs to core muscles.
+  2. Swimming works out the whole body, from arms and legs to core muscles.
 
-  * Soccer helps improve coordination, agility, and overall fitness levels.
+  3. Soccer helps improve coordination, agility, and overall fitness levels.
 
-  * Cycling builds leg muscles, improves balance, and promotes cardiovascular
+  4. Cycling builds leg muscles, improves balance, and promotes cardiovascular
   health.
 
-  * Gymnastics help improve flexibility, strength, and body control.
+  5. Gymnastics help improve flexibility, strength, and body control.
 
 
   Encouraging kids to participate in sports not only keeps them physically
@@ -87,14 +87,14 @@ blog: >
   use throughout their lives.
 
 
-  * Teamwork: Kids learn to work together toward a common goal.
+  1. Teamwork: Kids learn to work together toward a common goal.
 
-  * Communication: They learn to listen, give feedback, and support each other.
+  2. Communication: They learn to listen, give feedback, and support each other.
 
-  * Leadership: Playing sports gives kids opportunities to take on leadership
+  3. Leadership: Playing sports gives kids opportunities to take on leadership
   roles.
 
-  * Sportsmanship: How to win with grace and lose with dignity. Kids learn to
+  4. Sportsmanship: How to win with grace and lose with dignity. Kids learn to
   respect their opponents and follow the rules.
 
 
@@ -105,7 +105,7 @@ blog: >
   their self-confidence.
 
 
-  ##### Tip for Parents:
+  ### Tip for Parents:
 
 
   As parents, you can support your child's emotional growth through sports by
