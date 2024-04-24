@@ -34,6 +34,15 @@ allBlogs = allBlogs.map((blog) => {
 
 let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
 
+
+export async function getStaticPaths() {
+  return categories.map(category => ({
+    params: {
+      category
+    }
+  }))
+}
+
 const { category = '' } = Astro.params;
 
 if (category !== '' && categories.includes(category)) {
