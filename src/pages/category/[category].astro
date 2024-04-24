@@ -11,7 +11,7 @@ import DownArrow from '../icons/DownArrow.svg'
 import { getEntries, getCollection, type CollectionEntry } from 'astro:content';
 import MultiStyleText from "../../components/system/MultiStyleText.astro";
 
-export const prerender = false;
+export const prerender = true;
 const { school } = Astro.params;
 let allBlogs = await getCollection('blogs')
 
