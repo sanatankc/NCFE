@@ -1,8 +1,9 @@
 ---
-category: Sports
+category: Health & Wellness
 publishedDate: 2024-02-10T18:30:00.000Z
 title: Importance of sports in holistic education
 thumbnail: /images/NCFE/Importance of Sports.jpg
+caption: ''
 blog: >
   "They told me I could be anything, so I became an athlete and a scholar. Turns
   out, they weren't wrong." - Michael Jordan, former basketball player and
