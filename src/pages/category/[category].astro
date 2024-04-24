@@ -53,11 +53,14 @@ export async function getStaticPaths() {
     return new Date(b.data.publishedDate) - new Date(a.data.publishedDate)
   })
   let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
-  return categories.map(category => ({
-    params: {
-      category
-    }
-  }))
+  return {
+    ...categories.map(category => ({
+      params: {
+        category
+      },
+    }),
+    { params: { category: 'All' } },
+  )}
 }
 
 const { category = '' } = Astro.params;
