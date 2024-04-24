@@ -36,6 +36,23 @@ let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
 
 
 export async function getStaticPaths() {
+  let allBlogs = await getCollection('blogs')
+  allBlogs = allBlogs.map((blog) => {
+    return {
+      ...blog,
+      data: {
+        ...blog.data,
+        dateString: new Date(blog.data.publishedDate).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+        })
+      }
+    }
+  }).sort((a, b) => {
+    return new Date(b.data.publishedDate) - new Date(a.data.publishedDate)
+  })
+  let categories = [...new Set(allBlogs.map(blog => blog.data.category))]
   return categories.map(category => ({
     params: {
       category
