@@ -104,12 +104,12 @@ const { hideMenu = false, applyNowButtonId = null } = Astro.props
   class=" bg-white border border-slate-200  py-2 px-5 md:px-10 box-border w-full flex flex-row justify-between items-center backdrop-blur-md fixed z-[99]"
 >
   {hideMenu ? (
-    <div class="relative z-10 daisy daisy-fixed daisy-1 w-[70px]">
-      <Image src={logo} alt="Glentree's Logo" width={150} />
-    </div>
+    <a href="https://ncfeschools.com/" class="relative z-10 daisy daisy-fixed daisy-1 w-[70px]">
+      <Image src={logo} alt="Ncfe's Logo" width={150} />
+    </a>
   ) : (
-    <a href="/" class="relative z-10 w-[70px] daisy daisy-fixed daisy-1">
-      <Image src={logo} alt="Glentree's Logo" width={150} />
+    <a href="https://ncfeschools.com/" class="relative z-10 w-[70px] daisy daisy-fixed daisy-1">
+      <Image src={logo} alt="Ncfe's Logo" width={150} />
     </a>
   )}
   {!hideMenu && (

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.glentreeacademy.com/sitemap-index.xml
+Sitemap: https://ncfeschools.com/sitemap-index.xml

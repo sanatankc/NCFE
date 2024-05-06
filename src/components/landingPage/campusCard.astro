@@ -22,12 +22,12 @@ const { image, class: className, name, desc, link } = Astro.props
           </svg>
         </div>
       </div>
-  
+
       <div class='ml-6 mr-6 max-md:ml-2'>
         <Text type={'h4'} class=''>{name}</Text>
         <Text type={'sm'} class=''>{desc}</Text>
       </div>
-      
+
     </div>
       <a href={link} class="max-md:hidden">
         <div class="px-4 py-2 bg-green-600 rounded-lg">
@@ -38,11 +38,13 @@ const { image, class: className, name, desc, link } = Astro.props
   </div>
 </div>
 
-<script>
+<!-- <script>
+  const el = document.querySelectorAll('[data-link]');
+
   document.querySelectorAll('[data-link]').forEach(el => {
     console.log(el)
     el.addEventListener('click', () => {
-      window.open(el.dataset.link, "_self"); 
+      window.open(el.dataset.link, "_self");
     })
   })
-</script>
+</script> -->

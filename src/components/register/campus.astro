@@ -23,12 +23,22 @@ import config from '../../config'
 
       <div class='grid grid-cols-3 gap-8 max-md:gap-4 max-md:grid-rows-2 max-md:grid-cols-1 justify-between mt-8'>
         <!-- <a href='https://glentreeacademy.com/glentree-whitefield/'> -->
-          <CampusCard  link={config.baseURL + '/cvr-overview'} image={cvr} name='CV Raman Nagar' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Discover a world of learning on our 7.5-acre campus dedicated for 18 years to fostering young minds." />
-          <CampusCard link={config.baseURL + '/indiranagar-overview'} image={indiranagar} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indiranagar' desc="Established in 2017, our Indirangar Campus equip your child not just for life’s challenges but also for leadership." />
+          <CampusCard  link={config.baseURL + '/cv-raman-nagar'} image={cvr} name='CV Raman Nagar' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Discover a world of learning on our 7.5-acre campus dedicated for 18 years to fostering young minds." />
+          <CampusCard link={config.baseURL + '/indiranagar'} image={indiranagar} class='text-white text-left border-[2px] border-[#D1E0D3]' name='Indiranagar' desc="Established in 2017, our Indirangar Campus equip your child not just for life’s challenges but also for leadership." />
         <!-- </a> -->
         <!-- <a href='/glentree-sarajapura/'> -->
-          <CampusCard upcomingRibbon link={config.baseURL + '/mandur-overview'} image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
+          <CampusCard upcomingRibbon link={config.baseURL + '/mandur'} image={mandur} name='Mandur' class="text-white text-left border-[2px] border-[#D1E0D3]" desc="Opening Soon to Expand Learning Horizons" />
         <!-- </a> -->
       </div>
     </Constrain>
 </div>
+
+<script>
+
+  document.querySelectorAll('[data-link]').forEach(el => {
+    console.log(el)
+    el.addEventListener('click', () => {
+      window.open(el.dataset.link, "_self");
+    })
+  })
+</script>
