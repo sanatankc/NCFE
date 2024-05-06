@@ -6,6 +6,7 @@ import instagram from '../../icons/socials/Instagram.svg'
 import linkedin from '../../icons/socials/LinkedIn.svg'
 import twitter from '../../icons/socials/Twitter.svg'
 import youtube from '../../icons/socials/YouTube.svg'
+import pinterest from '../../icons/socials/pintrest.svg';
 import emailIcon from '../../icons/Email.svg'
 import phoneIcon from '../../icons/Phone.svg'
 import locationIcon from '../../icons/Location.svg'
@@ -22,52 +23,60 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
   <div class='w-full px-2 pl-8 max-md:px-6 max-md:pl-6'>
     <Constrain class="flex flex-row max-md:flex-col justify-between">
       <div>
-        <Image src={logo} alt="NCFE's Logo" class="w-16 h-auto self-start" />
+        <Image src={logo} alt="Ncfe's Logo" class="w-16 h-auto self-start" />
         <div class='flex flex-row mt-6'>
           <a target="_blank" href="https://www.facebook.com/nationalcentreforexcellence" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={facebook.src} alt="Facebook Icon" class="w-full h-full">
             </div>
           </a>
-  
+
           <!-- <a target="_blank" href="https://twitter.com/GlentreeAcademy" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={twitter.src} alt="Twitter Icon" class="w-full h-full">
             </div>
           </a> -->
-  
+
           <a target="_blank" href="https://www.instagram.com/ncfeschool/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={instagram.src} alt="Instagram Icon" class="w-full h-full">
             </div>
           </a>
-  
-          <!-- <a target="_blank" href="https://www.linkedin.com/company/glentreeacademy/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
-            <div class='h-[16px]'>
-              <img src={linkedin.src} alt="Linkedin Icon" class="w-full h-full">
-            </div>
-          </a> -->
-  
+
+
+
           <a target="_blank" href="https://www.youtube.com/@nationalcentreforexcellence" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
             <div class='h-[16px]'>
               <img src={youtube.src} alt="Youtube Icon" class="w-full h-full">
             </div>
           </a>
-  
-  
+
+
+          <a target="_blank" href="https://www.linkedin.com/school/national-centre-for-excellence" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+            <div class='h-[16px]'>
+              <img src={linkedin.src} alt="Linkedin Icon" class="w-full h-full">
+            </div>
+          </a>
+
+          <a target="_blank" href="https://in.pinterest.com/nationalcentreforexcellence/" class='mr-5 w-[36px] h-[36px] flex items-center justify-center bg-[rgb(251,221,215)] rounded-full'>
+            <div class='h-[20px]'>
+              <img src={pinterest.src} alt="Linkedin Icon" class="w-full h-full">
+            </div>
+          </a>
+
         </div>
       </div>
-  
+
       <div class='flex flex-row gap-6 max-md:gap-0 max-md:flex-col'>
         <!-- <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Explore</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <a target='_blank' href={config.baseURL + "/admissions"} class="hover:underline">
               <Text type={'sm'}>Admission Process</Text>
             </a>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <a target='_blank' href={config.baseURL + "/scholarship"} class="hover:underline"><Text type={'sm'}>Scholarship</Text></a>
           </div>
@@ -76,13 +85,13 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
         <!-- <div class="bg-white/20 w-[1px] h-full max-md:h-[1px] max-md:w-full"></div> -->
         <!-- <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Campuses</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <a target='_blank' href={config.baseURL + '/cvr-overview'} class="hover:underline">
               <Text type={'sm'}>CV Raman Nagar</Text>
             </a>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <a target='_blank' href={config.baseURL + '/indiranagar-overview'} class="hover:underline"><Text type={'sm'}>Indiranagar</Text></a>
           </div>
@@ -93,7 +102,7 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
         </div> -->
         <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>CV Raman Nagar</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
               <Image src={emailIcon} alt="Email Icon" class="w-full h-full">
@@ -107,13 +116,13 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
               </a>
             </div>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={phoneIcon} alt="Phone Icon" class="w-full h-full">
             </div>
             <a target='_blank' href='tel:08069455100' class="hover:underline"><Text type={'sm'} class='ml-2'>08069455100</Text></a>
-  
+
           </div>
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
@@ -121,13 +130,14 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
             </div>
             <a target='_blank' href='https://www.google.com/maps/search/national%2Bcentre%2Bfor%2Bexcellence/%4012.9745521%2C77.6603007%2C16z/data=%213m1%214b1' class="hover:underline"><Text type={'sm'} class='ml-2'>154/1, Vijay Kiran Knowledge Park,5th Main, Malleshpalya,Bengaluru 560075</Text></a>
           </div>
+          <a target='_blank' href='https://ncfe.myclassboard.com/Teacher_Career/CEE124EF-81B7-4D39-97D8-1848609AE3E0/9F8BB6AE-044A-46E0-B15A-78E4175DEF59' class="hover:underline"><Text type={'sm'} class='ml-7'>View Careers</Text></a>
         </div>
 
         <div class="bg-white/20 w-[1px] h-full max-md:h-[1px] max-md:w-full"></div>
 
         <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Indiranagar</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
               <Image src={emailIcon} alt="Email Icon" class="w-full h-full">
@@ -141,13 +151,13 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
               </a>
             </div>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={phoneIcon} alt="Phone Icon" class="w-full h-full">
             </div>
             <a target='_blank' href='tel:08047106008' class="hover:underline"><Text type={'sm'} class='ml-2'>08047106008</Text></a>
-  
+
           </div>
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
@@ -155,11 +165,13 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
             </div>
             <a target='_blank' href='https://g.page/r/CawSaTC_IdjHEBA' class="hover:underline"><Text type={'sm'} class='ml-2'>1054/2, 7th Main, 11th Cross, LIC Colony, Next to Murugan Temple, Jeevan Bhima Nagar, Bengaluru – 560075.</Text></a>
           </div>
+          <a target='_blank' href='https://ncfe.myclassboard.com/Teacher_Career/CEE124EF-81B7-4D39-97D8-1848609AE3E0/CCB6E51A-59DD-420E-A17A-78873363DAAB' class="hover:underline"><Text type={'sm'} class='ml-7'>View Careers</Text></a>
+
         </div>
         <div class="bg-white/20 w-[1px] h-full max-md:h-[1px] max-md:w-full"></div>
         <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class=' !text-[18px] max-md:!text-[16px] uppercase tracking-[2.4px] mb-7 max-md:mb-3 text-accent'>Mandur</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
               <Image src={emailIcon} alt="Email Icon" class="w-full h-full">
@@ -168,13 +180,13 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
               <Text type={'sm'} class='ml-2'> admissions.mandur@ncfe.ac.in</Text>
             </a>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={phoneIcon} alt="Phone Icon" class="w-full h-full">
             </div>
             <a target='_blank' href='tel:08069455200' class="hover:underline"><Text type={'sm'} class='ml-2'>08069455200</Text></a>
-  
+
           </div>
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
@@ -182,10 +194,11 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
             </div>
             <a target='_blank' href='https://www.google.com/maps/place/National+Centre+For+Excellence+school+Mandur/@13.0907828,77.7433124,15z/data=!4m6!3m5!1s0x3bae1bf74ffd3cd5:0xb6af51fdceb499d1!8m2!3d13.0907828!4d77.7433124!16s%2Fg%2F11tsn2n0x6?entry=ttu' class="hover:underline"><Text type={'sm'} class='ml-2'>NCFE School Hancharahalli Main Rd, Mandur, Bengaluru, 560049</Text></a>
           </div>
+          <a target='_blank' href='https://ncfe.myclassboard.com/Teacher_Career/CEE124EF-81B7-4D39-97D8-1848609AE3E0/D0B295A0-1287-4D63-B88D-01F260FC0EC0' class="hover:underline"><Text type={'sm'} class='ml-7'>View Careers</Text></a>
         </div>
         <!-- <div class='max-md:mt-8 max-md:mb-5 max-w-[325px]'>
           <Text type={'base'} class='text-green-300 mb-7 max-md:mb-3 font-semibold'>Whitefield</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5 flex-shrink-0'>
               <Image src={emailIcon} alt="Email Icon" class="w-full h-full">
@@ -194,15 +207,15 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
               <Text type={'sm'} class='ml-2'>admission.gaw@glentreeacademy.com</Text>
             </a>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={phoneIcon} alt="Phone Icon" class="w-full h-full">
             </div>
             <a target='_blank' href='tel:+917676310000' class="hover:underline"><Text type={'sm'} class='ml-2'>+91 7676310000</Text></a>
-  
+
           </div>
-  
+
           <div class='flex flex-row items-start mb-3 '>
             <div class='w-[2.25rem]'>
               <Image src={locationIcon} alt="Location Icon" class="w-full h-full">
@@ -214,7 +227,7 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
         </div>
         <div class='ml-16 max-md:ml-0 max-w-[325px]'>
           <Text type={'base'} class='text-green-300 mb-7 max-md:mb-3 font-semibold'>Sarjapur</Text>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={emailIcon} alt="Email Icon" class="w-full h-full">
@@ -223,14 +236,14 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
               <Text type={'sm'} class='ml-2'>admission.gas@glentreeacademy.com</Text>
             </a>
           </div>
-  
+
           <div class='flex flex-row items-center mb-3'>
             <div class='w-5'>
               <Image src={phoneIcon} alt="Phone Icon" class="w-full h-full">
             </div>
             <a target='_blank' href='tel:+919632104368' class="hover:underline"><Text type={'sm'} class='ml-2'>+91 9632104368</Text></a>
           </div>
-  
+
           <div class='flex flex-row items-start mb-3 '>
             <div class='w-[2.25rem] mr-1'>
               <Image src={locationIcon} alt="Location Icon" class="w-full h-full">
@@ -240,7 +253,7 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
             </a>
           </div>
         </div> -->
-        
+
       </div>
     </Constrain>
   </div>
@@ -253,19 +266,27 @@ const baseURL = 'https://navigate-designer-808266.framer.app/'
         <Text type={'sm'}>
           Copyright © 2023 &nbsp;
         </Text>
-        <!-- <Text type={'sm'} class="ml-1 max-md:ml-0">
+        <Text type={'sm'} class="ml-1 max-md:ml-0">
           <span class="max-md:hidden">{' • '}</span>
-          <a 
-            href="/privacy-policy" 
-            class="underline"
+          <a
+            href="https://ncfeschools.com/Privacy-policy"
+            class="hover:underline"
           >Privacy Policy</a>
-        </Text> -->
+        </Text>
+        <Text type={'sm'} class="ml-3 max-md:ml-0">
+          <span class="max-md:hidden">{' • '}</span>
+          <a
+            href="https://ncfeschools.com/Terms-of-Service"
+            class="hover:underline"
+          >Terms of Service</a>
+        </Text>
       </div>
       <div class="max-md:pt-3 pt-0"></div>
       <div>
-        <a href="https://thedotstudio.in/" target="_blank">
-          <Image src={theDotStudioLogo} class="w-[250px] max-md:w-[200px]" alt={"The Dot Studio Logo"} />
+        <a href="https://thedotstudio.in/" target="_blank" data-dot-studio-footer>
+          <Image src={theDotStudioLogo} class="w-[200px] max-md:w-[160px]" alt={"Website Designed by The Dot Studio"} />
         </a>
+
       </div>
     </Constrain>
   </div>
